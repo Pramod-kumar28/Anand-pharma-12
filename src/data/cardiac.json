@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Atorvastatin 10mg Tablets",
+    "type": "Medication",
+    "brand": "Cipla",
+    "priceNumeric": 299,
+    "originalPriceNumeric": 399,
+    "savings": "25%",
+    "image": "/assets/Cardiac/atorvastatin.jpg",
+    "description": "Cholesterol-lowering medication for cardiovascular health.",
+    "prescriptionRequired": true
+  }
+]

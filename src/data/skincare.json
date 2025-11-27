@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Vitamin C Serum",
+    "category": "Serum",
+    "brand": "La Roche-Posay",
+    "priceNumeric": 1299,
+    "originalPriceNumeric": 1799,
+    "savings": "28%",
+    "image": "/assets/SkinCare/vitamin-c-serum.jpg",
+    "description": "Brightening serum with 20% Vitamin C for radiant, even-toned skin.",
+    "keyFeatures": [
+      "Reduces dark spots and hyperpigmentation",
+      "Antioxidant protection against environmental damage",
+      "Lightweight, fast-absorbing formula"
+    ]
+  }
+]
