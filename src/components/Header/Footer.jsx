@@ -139,9 +139,16 @@ const Footer = () => {
                                 </div>
                             </div>
                             
-                            <h3 className="text-xl font-bold">
-                                <span className="text-blue-400">Anand</span> Pharmacy
-                            </h3>
+                            {/* Brand Name */}
+                            <div className="flex flex-col min-w-0">
+                                <span className="text-base font-bold text-white-800 whitespace-nowrap md:text-lg truncate">
+                                    <span className="text-blue-300">Anand</span> Pharmacy
+                                </span>
+                                {/* Tagline - Hidden on mobile */}
+                                <span className="md:block text-xs text-gray-200 whitespace-nowrap">
+                                    Trusted Healthcare
+                                </span>
+                            </div>
                         </div>
                         
                         <p className="text-white/80 leading-relaxed mb-6 max-w-md">

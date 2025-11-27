@@ -400,7 +400,7 @@ const Header = ({
                                     <span className="text-blue-600">Anand</span> Pharmacy
                                 </span>
                                 {/* Tagline - Hidden on mobile */}
-                                <span className="hidden md:block text-xs text-gray-500 whitespace-nowrap">
+                                <span className="md:block text-xs text-gray-500 whitespace-nowrap">
                                     Trusted Healthcare
                                 </span>
                             </div>
