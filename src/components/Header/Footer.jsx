@@ -190,7 +190,8 @@ const Footer = () => {
                         },
                         {
                             title: "Information",
-                            links: ["About Us", "Our Stores", "FAQs", "Terms & Conditions", "Privacy Policy"]
+                            links: ["About Us", "Our Stores", "FAQs", "Terms & Conditions", "Privacy Policy"],
+                            url: ['/about']
                         }
                     ].map((section, idx) => (
                         <div key={idx}>
@@ -198,7 +199,7 @@ const Footer = () => {
                             <ul className="space-y-3 text-white/80">
                                 {section.links.map((item) => (
                                     <li key={item}>
-                                        <a href="#" className="hover:text-blue-300 transition text-sm md:text-base">
+                                        <a href={section.url} className="hover:text-blue-300 transition text-sm md:text-base">
                                             {item}
                                         </a>
                                     </li>
