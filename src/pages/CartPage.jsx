@@ -12,7 +12,7 @@ const CartPage = () => {
       price: 85,
       originalPrice: 100,
       quantity: 1,
-      image: "https://via.placeholder.com/100x100?text=Digene",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3VkEI9N23Td-O22z6Hwq4vG55-W84VSGddQ&s",
       category: "Stomach Care",
       prescriptionRequired: false
     },
@@ -23,7 +23,7 @@ const CartPage = () => {
       price: 250,
       originalPrice: 300,
       quantity: 1,
-      image: "https://via.placeholder.com/100x100?text=Metformin",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlk2IqgXndDxGyo5oS_MvWB-kpo5_EihTxyw&s",
       category: "Diabetes Care",
       prescriptionRequired: true
     }
@@ -63,9 +63,9 @@ const CartPage = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center py-12 sm:py-16">
+      <div className="min-h-screen bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center py-2 sm:py-16">
             <div className="text-6xl mb-4">🛒</div>
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Your Cart is Empty</h2>
             <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">Add some products to your cart to get started.</p>
@@ -82,8 +82,8 @@ const CartPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-6 sm:py-6 lg:py-6">
         {/* Header */}
         <div className="mb-6 sm:mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Shopping Cart</h1>

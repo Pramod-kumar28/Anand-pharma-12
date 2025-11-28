@@ -7,7 +7,7 @@
     "priceNumeric": 99,
     "originalPriceNumeric": 140,
     "savings": "29%",
-    "image": "./assets/Oralimg/freshmint.jpg",
+    "image": "/assets/Oralimg/freshmint.jpg",
     "description": "A refreshing toothpaste that helps fight cavities, freshens breath, and maintains oral hygiene.",
     "keyFeatures": [
       "Fights cavities",
@@ -26,7 +26,7 @@
     "priceNumeric": 79,
     "originalPriceNumeric": 110,
     "savings": "28%",
-    "image": "/assets/Oralimg/herbalclove.jpg",
+    "image": "/assets/Oralimg/herbalclove.webp",
     "description": "Natural toothpaste with clove oil that provides long-lasting protection from germs.",
     "keyFeatures": [
       "Herbal formula",
@@ -140,7 +140,7 @@
     "priceNumeric": 399,
     "originalPriceNumeric": 480,
     "savings": "17%",
-    "image": "/assets/Oralimg/mouthspray.jpg",
+    "image": "/assets/Oralimg/mouthspray.webp",
     "description": "Instantly relieves dryness and moisturizes mouth tissues.",
     "keyFeatures": [
       "Soothes dry mouth",

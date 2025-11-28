@@ -29,24 +29,17 @@ const Checkout = () => {
     items: [
       {
         id: 1,
-        name: "Colgate Strong Teeth Toothpaste",
-        price: 120,
-        quantity: 2,
-        image: "https://via.placeholder.com/60x60?text=Toothpaste"
+        name: "Metformin Hydrochloride Tablets",
+        price: 250,
+        quantity: 1,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlk2IqgXndDxGyo5oS_MvWB-kpo5_EihTxyw&s"
       },
       {
         id: 2,
-        name: "Baby Dove Rich Moisture Shampoo",
-        price: 180,
-        quantity: 1,
-        image: "https://via.placeholder.com/60x60?text=Baby+Care"
-      },
-      {
-        id: 3,
         name: "Digene Acidity & Gas Relief Tablets",
         price: 85,
         quantity: 1,
-        image: "https://via.placeholder.com/60x60?text=Stomach+Care"
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3VkEI9N23Td-O22z6Hwq4vG55-W84VSGddQ&s"
       }
     ]
   });
@@ -89,7 +82,7 @@ const Checkout = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
         {/* Header */}
         <div className="mb-6 sm:mb-8">
@@ -129,7 +122,7 @@ const Checkout = () => {
 
           {/* Desktop Horizontal Steps */}
           <div className="hidden lg:block">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-center  text-center">
               {steps.map((stepItem, index) => (
                 <div key={stepItem.number} className="flex items-center">
                   <div className={`flex items-center justify-center w-10 h-10 rounded-full ${

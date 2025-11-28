@@ -22,9 +22,9 @@ import Footer from "../components/Header/Footer";
 
 export default function Home() {
   return (
-    <div className="home-wrapper pt-[150px] lg:pt-[120px]">
+    <div className="home-wrapper pt-[32px] lg:pt-[32px]">
         <Header/>
-      <div className="home-content px-4 py-6 lg:py-10">
+      <div className="home-content px-3 py-10 lg:py-10">
         <Routes>
 
           <Route path="/" element={<Navigate to="all" replace />} />

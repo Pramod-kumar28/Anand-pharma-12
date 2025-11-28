@@ -8,7 +8,7 @@
       "description": "Long-lasting PPI for acidity and GERD.",
       "medicine_type": "PPI",
       "uses": ["GERD", "Acid reflux", "Ulcer"],
-      "images": "assets/StomachCare/Omez.png",      
+      "images": "/assets/StomachCare/Omez.png",      
       "cost": 85,
       "discount": 20,
       "final_price": 74.8,

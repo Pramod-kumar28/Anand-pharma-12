@@ -8,7 +8,7 @@
       "price": "₹299",
       "originalPrice": "₹450",
       "savings": "34%",
-      "image": "/assets/Cardiology/Clopvex_75_Clopidogrel.jpg",
+      "image": "/assets/Cardiology/heart1.png",
       "description": "It offers fast-acting protection for cardiovascular health.",
       "composition": "Clopvex-75 (Clopidogrel 75 mg)"
     },
@@ -20,7 +20,7 @@
       "price": "₹599",
       "originalPrice": "₹850",
       "savings": "30%",
-      "image": "/assets/Cardiology/Atorvastatin 40 mg & Clopidogrel 75 mg.jpg",
+      "image": "/assets/Cardiology/heart2.png",
       "description": "It offers a high-quality, cost-effective solution approved by DCGI.",
       "composition": "ATORTEST-CZ (Atorvastatin 40 mg & Clopidogrel 75 mg)"
     },
@@ -32,7 +32,7 @@
       "price": "₹699",
       "originalPrice": "₹950",
       "savings": "26%",
-      "image": "/assets/Cardiology/Atorvastatin 20 mg & Clopidogrel 75 mg.jpg",
+      "image": "/assets/Cardiology/heart3.png",
       "description": "It helps reduce the risk of heart attack, stroke, and angina.",
       "composition": "CLOPVEX–AT20 (Clopidogrel 75mg + Atorvastatin 20mg)"
     },
@@ -44,7 +44,7 @@
       "price": "₹799",
       "originalPrice": "₹1,100",
       "savings": "27%",
-      "image": "/assets/Cardiology/Rosuvastatin 10 mg, Aspirin 75 mg & Clopidogrel 75 mg.jpg",
+      "image": "/assets/Cardiology/heart4.png",
       "description": "This triple-action formula helps lower cholesterol, prevent blood clots, and reduce the risk of heart attack and stroke.",
       "composition": "ROSUTAS PLUS (Rosuvastatin 10mg, Aspirin75 mg, Clopidogrel 75mg)"
     },
@@ -56,7 +56,7 @@
       "price": "₹279",
       "originalPrice": "₹420",
       "savings": "34%",
-      "image": "/assets/Cardiology/Clopidogrel 75 mg.jpg",
+      "image": "/assets/Cardiology/heart5.png",
       "description": "It helps prevent blood clot formation, reducing the risk of heart attack and stroke.",
       "composition": "Clopilet (Clopidogrel 75 mg)"
     },
@@ -68,7 +68,7 @@
       "price": "₹259",
       "originalPrice": "₹390",
       "savings": "34%",
-      "image": "/assets/Cardiology/Clopidogrel 75 mg and 150 mg.jpg",
+      "image": "/assets/Cardiology/heart6.png",
       "description": "It helps prevent harmful blood clots, lowering the risk of heart attack and stroke.",
       "composition": "Clopivas (Clopidogrel 75mg/150mg)"
     },
@@ -80,7 +80,7 @@
       "price": "₹319",
       "originalPrice": "₹480",
       "savings": "34%",
-      "image": "/assets/Cardiology/Clopidogrel 75 mg.jpg",
+      "image": "/assets/Cardiology/heart7.png",
       "description": "Trusted Clopidogrel formulation",
       "composition": "Clopidogrel Bisulfate 75mg"
     },
@@ -92,7 +92,7 @@
       "price": "₹269",
       "originalPrice": "₹410",
       "savings": "34%",
-      "image": "/assets/Cardiology/Ceruvin-Clopidogrel 75 mg.jpg",
+      "image": "/assets/Cardiology/heart8.png",
       "description": "Reliable antiplatelet therapy",
       "composition": "Clopidogrel Bisulfate 75mg"
     },
@@ -104,7 +104,7 @@
       "price": "₹189",
       "originalPrice": "₹280",
       "savings": "32%",
-      "image": "/assets/Cardiology/Aspirin-75mg.jpg",
+      "image": "/assets/Cardiology/heart9.png",
       "description": "Prevents blood clot formation and reduces risk of heart attacks.",
       "composition": "Ecosprin (Aspirin 75mg)"
     },
@@ -116,7 +116,7 @@
       "price": "₹349",
       "originalPrice": "₹520",
       "savings": "33%",
-      "image": "/assets/Cardiology/Rosuvastatin-10mg.jpg",
+      "image": "/assets/Cardiology/heart10.png",
       "description": "Lowers cholesterol levels and reduces cardiovascular risks.",
       "composition": "Rozavel (Rosuvastatin 10mg)"
     },
@@ -128,7 +128,7 @@
       "price": "₹229",
       "originalPrice": "₹340",
       "savings": "33%",
-      "image": "/assets/Heart_Atick/Atorvastatin-10mg.jpg",
+      "image": "/assets/Cardiology/heart11.png",
       "description": "Effective statin therapy for cholesterol management.",
       "composition": "Atorva (Atorvastatin 10mg)"
     },
@@ -140,7 +140,7 @@
       "price": "₹899",
       "originalPrice": "₹1,350",
       "savings": "33%",
-      "image": "/assets/Heart_Atick/Ticagrelor-90mg.jpg",
+      "image": "/assets/Cardiology/heart12.png",
       "description": "Advanced antiplatelet therapy for acute coronary syndrome.",
       "composition": "Brilinta (Ticagrelor 90mg)"
     },
@@ -152,7 +152,7 @@
       "price": "₹799",
       "originalPrice": "₹1,200",
       "savings": "33%",
-      "image": "/assets/Heart_Atick/Prasugrel-10mg.jpg",
+      "image": "/assets/Cardiology/heart13.png",
       "description": "Potent antiplatelet medication for heart attack prevention.",
       "composition": "Effient (Prasugrel 10mg)"
     },
@@ -164,7 +164,7 @@
       "price": "₹459",
       "originalPrice": "₹690",
       "savings": "33%",
-      "image": "/assets/Heart_Atick/Ezetimibe-10mg.jpg",
+      "image": "/assets/Cardiology/heart14.png",
       "description": "Reduces cholesterol absorption in the intestine.",
       "composition": "Ezetrol (Ezetimibe 10mg)"
     },
@@ -176,7 +176,7 @@
       "price": "₹389",
       "originalPrice": "₹580",
       "savings": "33%",
-      "image": "/assets/Heart_Atick/Clopidogrel-150mg.jpg",
+      "image": "/assets/Cardiology/heart15.png",
       "description": "Higher strength antiplatelet therapy for enhanced protection.",
       "composition": "Clopivas (Clopidogrel 150mg)"
     },
@@ -188,7 +188,7 @@
       "price": "₹499",
       "originalPrice": "₹750",
       "savings": "33%",
-      "image": "/assets/Heart_Atick/Rosuvastatin-20mg.jpg",
+      "image": "/assets/Cardiology/heart16.png",
       "description": "Higher potency statin for aggressive cholesterol control.",
       "composition": "Rozavel (Rosuvastatin 20mg)"
     },
@@ -200,7 +200,7 @@
       "price": "₹329",
       "originalPrice": "₹490",
       "savings": "33%",
-      "image": "/assets/Heart_Atick/Atorvastatin-20mg.jpg",
+      "image": "/assets/Cardiology/heart17.png",
       "description": "Medium strength statin for balanced cholesterol management.",
       "composition": "Atorva (Atorvastatin 20mg)"
     },
@@ -212,7 +212,7 @@
       "price": "₹219",
       "originalPrice": "₹330",
       "savings": "34%",
-      "image": "/assets/Heart_Atick/Aspirin-150mg.jpg",
+      "image": "/assets/Cardiology/heart18.png",
       "description": "Higher strength aspirin for enhanced antiplatelet effect.",
       "composition": "Ecosprin (Aspirin 150mg)"
     }

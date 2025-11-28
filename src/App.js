@@ -31,6 +31,7 @@ import Profile from "./pages/Profile/Profile";
 import AddressManager from "./pages/Profile/AddressManager";
 import LandingPage from "./components/Landingpage";
 import OrderConfirmation from "./pages/Checkout/OrderConfirmation";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Protected Route
 const ProtectedRoute = ({ children }) => {
@@ -69,6 +70,7 @@ const App = () => {
   return (
     <CartProvider> {/* Wrap entire app with CartProvider */}
       <Router>
+      <ScrollToTop/>
         <LayoutController>
           <Routes>
             {/* Home */}

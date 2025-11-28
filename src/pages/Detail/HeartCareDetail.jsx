@@ -123,7 +123,7 @@ const HeartCareDetail = () => {
       <nav className="flex mb-6" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-gray-600">
           <li>
-            <button onClick={() => navigate("/home/heart-care")} className="hover:text-red-600">
+            <button onClick={() => navigate("/home/cardiac-care")} className="hover:text-red-600">
               Heart Care
             </button>
           </li>
@@ -158,9 +158,7 @@ const HeartCareDetail = () => {
           <div className="bg-white rounded-lg border p-4 mb-4">
             <div className="w-full h-80 bg-gray-200 rounded-lg flex items-center justify-center">
               <div className="text-center">
-                <span className="text-red-500 text-6xl mb-4">❤️</span>
-                <p className="text-gray-600">Cardiac Medication</p>
-                <p className="text-gray-500 text-sm mt-2">{product.name}</p>
+                <img src={product.image} alt={product.name} className="w-full h-full object-contain" />
               </div>
             </div>
           </div>

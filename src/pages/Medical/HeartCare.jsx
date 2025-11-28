@@ -70,7 +70,7 @@ const HeartCare = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       {/* Header */}
       <div className="mb-8">
@@ -160,7 +160,7 @@ const HeartCare = () => {
             <div className="relative">
               <div className="w-full h-48 bg-gray-200 rounded-t-lg flex items-center justify-center">
                 <div className="text-center p-4">
-                  <img src={product.image} alt={product.name} className="max-w-full max-h-full" />
+                  <img src={product.image} alt={product.name} className="w-full h-48 object-contain" />
                 </div>
               </div>
               
