@@ -29,7 +29,8 @@ const HeartCareDetail = () => {
       ?.filter(p => 
         p.id !== currentProduct.id && 
         (p.brand === currentProduct.brand || 
-         p.name.toLowerCase().includes(currentProduct.name.split(' ')[0].toLowerCase()))
+         (p.chemical_name && currentProduct.chemical_name && 
+          p.chemical_name.includes(currentProduct.chemical_name.split(' ')[0])))
       )
       .slice(0, 4) || [];
     
@@ -69,7 +70,10 @@ const HeartCareDetail = () => {
         image: "https://via.placeholder.com/100x100?text=Heart+Care",
         category: "Heart Care",
         prescriptionRequired: true,
-        quantity: quantity
+        quantity: quantity,
+        // Add chemical composition for cart display
+        chemical_name: product.chemical_name,
+        company_name: product.company_name
       };
       cart.push(cartProduct);
     }
@@ -115,7 +119,6 @@ const HeartCareDetail = () => {
   // Calculate price values
   const price = parseFloat(product.price.replace('₹', '')) || 0;
   const originalPrice = parseFloat(product.originalPrice?.replace('₹', '')) || 0;
-  const savings = product.savings;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -163,9 +166,38 @@ const HeartCareDetail = () => {
             </div>
           </div>
 
+          {/* Chemical Composition Highlight */}
+          {product.chemical_name && (
+            <div className="mb-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h3 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
+                <span className="text-blue-600">🧪</span>
+                Chemical Composition
+              </h3>
+              <div className="space-y-2">
+                {product.chemical_name && (
+                  <div>
+                    <p className="text-sm text-blue-800 font-medium">Chemical Name:</p>
+                    <p className="text-blue-900 text-sm bg-blue-100 p-2 rounded mt-1">
+                      {product.chemical_name}
+                    </p>
+                  </div>
+                )}
+                {product.composition && (
+                  <div>
+                    <p className="text-sm text-blue-800 font-medium">Formulation:</p>
+                    <p className="text-blue-900 text-sm">{product.composition}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* Quick Facts */}
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-            <h3 className="font-semibold text-red-900 mb-3">Quick Facts</h3>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+            <h3 className="font-semibold text-red-900 mb-3 flex items-center gap-2">
+              <span className="text-red-600">📋</span>
+              Quick Facts
+            </h3>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div className="flex flex-col">
                 <span className="text-red-600">Medication Type:</span>
@@ -176,8 +208,22 @@ const HeartCareDetail = () => {
                 <span className="font-medium">{product.brand}</span>
               </div>
               <div className="flex flex-col">
+                <span className="text-red-600">Company:</span>
+                <span className="font-medium">{product.company_name || "Not specified"}</span>
+              </div>
+              <div className="flex flex-col">
                 <span className="text-red-600">Prescription:</span>
                 <span className="font-medium text-red-600">Required</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-red-600">Drug Class:</span>
+                <span className="font-medium">
+                  {product.chemical_name?.includes('Clopidogrel') ? 'Antiplatelet' : 
+                   product.chemical_name?.includes('Atorvastatin') || product.chemical_name?.includes('Rosuvastatin') ? 'Statin' :
+                   product.chemical_name?.includes('Aspirin') ? 'NSAID/Antiplatelet' :
+                   product.chemical_name?.includes('Ticagrelor') || product.chemical_name?.includes('Prasugrel') ? 'P2Y12 Inhibitor' :
+                   product.chemical_name?.includes('Ezetimibe') ? 'Cholesterol Absorption Inhibitor' : 'Cardiovascular'}
+                </span>
               </div>
               <div className="flex flex-col">
                 <span className="text-red-600">Safety:</span>
@@ -187,27 +233,30 @@ const HeartCareDetail = () => {
           </div>
 
           {/* Cart Summary */}
-          <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="font-semibold text-blue-900 mb-3">Order Summary</h3>
+          <div className="mb-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
+            <h3 className="font-semibold text-purple-900 mb-3 flex items-center gap-2">
+              <span className="text-purple-600">💰</span>
+              Order Summary
+            </h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-blue-600">Price:</span>
+                <span className="text-purple-600">Price:</span>
                 <span className="font-medium">₹{price} × {quantity}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-blue-600">Total:</span>
-                <span className="font-bold text-lg">₹{price * quantity}</span>
+                <span className="text-purple-600">Total:</span>
+                <span className="font-bold text-lg text-purple-900">₹{price * quantity}</span>
               </div>
               {originalPrice > price && (
                 <div className="flex justify-between">
-                  <span className="text-blue-600">You Save:</span>
+                  <span className="text-purple-600">You Save:</span>
                   <span className="text-green-600 font-semibold">
                     ₹{(originalPrice - price) * quantity}
                   </span>
                 </div>
               )}
               <div className="pt-2 border-t">
-                <p className="text-blue-700 text-xs">
+                <p className="text-purple-700 text-xs">
                   * Valid prescription required for purchase
                 </p>
               </div>
@@ -215,21 +264,54 @@ const HeartCareDetail = () => {
           </div>
 
           {/* Medical Information */}
-          <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="font-semibold text-blue-900 mb-3">Cardiac Medication Information</h3>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+              <span className="text-blue-600">💊</span>
+              Cardiac Medication Information
+            </h3>
             <div className="space-y-2 text-sm text-blue-800">
-              <p><strong>Class:</strong> Antiplatelet / Statin Therapy</p>
-              <p><strong>Primary Use:</strong> Heart attack and stroke prevention</p>
+              {product.chemical_name && (
+                <p><strong>Chemical Class:</strong> {getChemicalClass(product.chemical_name)}</p>
+              )}
+              <p><strong>Primary Use:</strong> {getPrimaryUse(product.chemical_name)}</p>
               <p><strong>Monitoring:</strong> Regular blood tests recommended</p>
-              <p><strong>Storage:</strong> Store in cool, dry place</p>
+              <p><strong>Storage:</strong> Store in cool, dry place away from moisture</p>
+              {product.company_name && (
+                <p><strong>Manufacturer:</strong> {product.company_name}</p>
+              )}
             </div>
           </div>
         </div>
 
         {/* Product Info */}
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
-          <p className="text-gray-600 mb-4">{product.brand}</p>
+          {/* Product Name with Chemical Info */}
+          <div className="mb-4">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
+            
+            {/* Chemical Name Display */}
+            {product.chemical_name && (
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-blue-600 text-lg">🧬</span>
+                <span className="text-blue-700 font-medium text-lg">
+                  {product.chemical_name}
+                </span>
+                {product.brand && (
+                  <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">
+                    Brand: {product.brand}
+                  </span>
+                )}
+              </div>
+            )}
+            
+            <p className="text-gray-600">
+              {product.composition ? (
+                <><span className="font-semibold">{product.composition}</span></>
+              ) : (
+                <>by <span className="font-semibold">{product.composition}</span></>
+              )}
+            </p>
+          </div>
 
           {/* Important Warning */}
           <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
@@ -241,6 +323,11 @@ const HeartCareDetail = () => {
               This cardiac medication requires a valid prescription from a cardiologist. 
               Do not self-medicate. Always follow your doctor's prescription and dosage instructions.
             </p>
+            {product.chemical_name && (
+              <div className="mt-2 text-xs text-red-600">
+                <p><strong>Note:</strong> Always verify chemical composition ({product.chemical_name}) with your cardiologist before use.</p>
+              </div>
+            )}
           </div>
 
           {/* Price */}
@@ -266,19 +353,36 @@ const HeartCareDetail = () => {
             <p className="text-gray-600">{product.description}</p>
           </div>
 
-          {/* Composition */}
-          {product.composition && (
-            <div className="mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Composition</h3>
-              <p className="text-gray-600 bg-gray-50 p-3 rounded-lg border">
-                {product.composition}
-              </p>
+          {/* Detailed Composition Section */}
+          {(product.composition || product.chemical_name) && (
+            <div className="mb-6 bg-white border border-blue-300 rounded-lg p-4 shadow-sm">
+              <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+                <span className="text-blue-600 text-xl">⚗️</span>
+                Detailed Chemical Information
+              </h3>
+              <div className="space-y-3">
+                {product.chemical_name && (
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <p className="text-sm text-blue-800 font-medium mb-1">Chemical Name:</p>
+                    <p className="text-blue-900 font-medium">{product.chemical_name}</p>
+                  </div>
+                )}
+                {product.composition && (
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Formulation:</p>
+                    <p className="text-gray-700 bg-gray-50 p-2 rounded">{product.composition}</p>
+                  </div>
+                )}
+              </div>
             </div>
           )}
 
           {/* How to Order */}
           <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4">
-            <h3 className="font-semibold text-green-900 mb-3">How to Order Cardiac Medications</h3>
+            <h3 className="font-semibold text-green-900 mb-3 flex items-center gap-2">
+              <span className="text-green-600">📝</span>
+              How to Order Cardiac Medications
+            </h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">1</div>
@@ -297,13 +401,19 @@ const HeartCareDetail = () => {
 
           {/* Safety Information */}
           <div className="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-            <h3 className="font-semibold text-yellow-900 mb-2">Safety Information</h3>
+            <h3 className="font-semibold text-yellow-900 mb-2 flex items-center gap-2">
+              <span className="text-yellow-600">⚠️</span>
+              Safety Information
+            </h3>
             <ul className="text-yellow-800 text-sm space-y-1 list-disc list-inside">
               <li>Take exactly as prescribed by your doctor</li>
               <li>Do not stop taking without medical advice</li>
               <li>Report any unusual bleeding or bruising</li>
               <li>Regular liver function tests may be required</li>
               <li>Inform your doctor about all other medications</li>
+              {product.chemical_name && (
+                <li>Verify chemical compatibility with other drugs</li>
+              )}
             </ul>
           </div>
 
@@ -385,6 +495,45 @@ const HeartCareDetail = () => {
         </div>
       </div>
 
+      {/* Chemical Safety Information */}
+      {product.chemical_name && (
+        <div className="border-t pt-8 mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="text-blue-600">🧪</span>
+            Chemical Safety & Pharmacological Information
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white border border-blue-200 rounded-lg p-4">
+              <h3 className="font-semibold text-blue-900 mb-2">Pharmacological Class</h3>
+              <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                <li>{getChemicalClass(product.chemical_name)}</li>
+                <li>{getMechanismOfAction(product.chemical_name)}</li>
+                <li>Prescription-only medication</li>
+                <li>Follow cardiologist's instructions carefully</li>
+              </ul>
+            </div>
+            <div className="bg-white border border-blue-200 rounded-lg p-4">
+              <h3 className="font-semibold text-blue-900 mb-2">Storage & Handling</h3>
+              <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                <li>Store in original packaging</li>
+                <li>Keep away from moisture and direct sunlight</li>
+                <li>Store at room temperature (20-25°C)</li>
+                <li>Keep out of reach of children</li>
+              </ul>
+            </div>
+            <div className="bg-white border border-blue-200 rounded-lg p-4">
+              <h3 className="font-semibold text-blue-900 mb-2">Chemical Precautions</h3>
+              <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
+                <li>Do not use if seal is broken</li>
+                <li>Check expiry date before use</li>
+                <li>Follow prescribed dosage strictly</li>
+                <li>Report adverse reactions immediately</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Heart Care Guidelines */}
       <div className="border-t pt-8 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Heart Care Best Practices</h2>
@@ -421,22 +570,25 @@ const HeartCareDetail = () => {
 
       {/* Emergency Information */}
       <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
-        <h3 className="text-xl font-bold text-red-900 mb-4">Emergency Heart Symptoms</h3>
+        <h3 className="text-xl font-bold text-red-900 mb-4 flex items-center gap-2">
+          <span className="text-red-500">🚨</span>
+          Emergency Heart Symptoms
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">🚨</span>
+            <span className="text-red-500 mt-1">💔</span>
             <span>Chest pain or pressure lasting more than few minutes</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">🚨</span>
+            <span className="text-red-500 mt-1">💔</span>
             <span>Pain spreading to shoulder, arm, back, neck or jaw</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">🚨</span>
+            <span className="text-red-500 mt-1">💔</span>
             <span>Shortness of breath with or without chest discomfort</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">🚨</span>
+            <span className="text-red-500 mt-1">💔</span>
             <span>Cold sweat, nausea, vomiting or lightheadedness</span>
           </div>
         </div>
@@ -480,6 +632,12 @@ const HeartCareDetail = () => {
                   <h3 className="font-semibold text-gray-900 text-sm mb-1 line-clamp-2">
                     {relatedProduct.name}
                   </h3>
+                  {/* Show chemical name in related products */}
+                  {relatedProduct.chemical_name && (
+                    <p className="text-blue-600 text-xs mb-1 line-clamp-1">
+                      {relatedProduct.chemical_name}
+                    </p>
+                  )}
                   <p className="text-gray-600 text-xs mb-2">{relatedProduct.brand}</p>
                   <div className="flex items-center gap-2">
                     <span className="text-lg font-bold text-gray-900">
@@ -499,6 +657,57 @@ const HeartCareDetail = () => {
       )}
     </div>
   );
+};
+
+// Helper functions for drug information
+const getChemicalClass = (chemicalName) => {
+  if (!chemicalName) return "Cardiovascular Drug";
+  
+  if (chemicalName.includes('Clopidogrel')) return "P2Y12 Inhibitor (Antiplatelet)";
+  if (chemicalName.includes('Atorvastatin') || chemicalName.includes('Rosuvastatin')) return "HMG-CoA Reductase Inhibitor (Statin)";
+  if (chemicalName.includes('Aspirin') || chemicalName.includes('Acetylsalicylic')) return "NSAID / Antiplatelet";
+  if (chemicalName.includes('Ticagrelor')) return "P2Y12 Inhibitor (Reversible)";
+  if (chemicalName.includes('Prasugrel')) return "P2Y12 Inhibitor (Irreversible)";
+  if (chemicalName.includes('Ezetimibe')) return "Cholesterol Absorption Inhibitor";
+  
+  return "Cardiovascular Agent";
+};
+
+const getPrimaryUse = (chemicalName) => {
+  if (!chemicalName) return "Heart attack and stroke prevention";
+  
+  if (chemicalName.includes('Clopidogrel') || chemicalName.includes('Aspirin') || 
+      chemicalName.includes('Ticagrelor') || chemicalName.includes('Prasugrel')) {
+    return "Prevention of blood clots, heart attack, and stroke";
+  }
+  if (chemicalName.includes('Atorvastatin') || chemicalName.includes('Rosuvastatin')) {
+    return "Cholesterol lowering and cardiovascular risk reduction";
+  }
+  if (chemicalName.includes('Ezetimibe')) {
+    return "Cholesterol absorption inhibition";
+  }
+  
+  return "Cardiovascular protection";
+};
+
+const getMechanismOfAction = (chemicalName) => {
+  if (!chemicalName) return "Cardiovascular protective mechanism";
+  
+  if (chemicalName.includes('Clopidogrel') || chemicalName.includes('Ticagrelor') || 
+      chemicalName.includes('Prasugrel')) {
+    return "Inhibits platelet aggregation to prevent clot formation";
+  }
+  if (chemicalName.includes('Aspirin') || chemicalName.includes('Acetylsalicylic')) {
+    return "Irreversibly inhibits platelet COX-1 enzyme";
+  }
+  if (chemicalName.includes('Atorvastatin') || chemicalName.includes('Rosuvastatin')) {
+    return "Inhibits HMG-CoA reductase, reducing cholesterol synthesis";
+  }
+  if (chemicalName.includes('Ezetimibe')) {
+    return "Inhibits cholesterol absorption in small intestine";
+  }
+  
+  return "Cardiovascular protective action";
 };
 
 export default HeartCareDetail;

@@ -10,7 +10,9 @@
       "savings": "34%",
       "image": "/assets/Cardiology/heart1.png",
       "description": "It offers fast-acting protection for cardiovascular health.",
-      "composition": "Clopvex-75 (Clopidogrel 75 mg)"
+      "composition": "Clopvex-75 (Clopidogrel 75 mg)",
+      "chemical_name": "Clopidogrel Bisulfate",
+      "company_name": "Dr. Reddy's Laboratories Ltd"
     },
     {
       "id": 2,
@@ -22,7 +24,9 @@
       "savings": "30%",
       "image": "/assets/Cardiology/heart2.png",
       "description": "It offers a high-quality, cost-effective solution approved by DCGI.",
-      "composition": "ATORTEST-CZ (Atorvastatin 40 mg & Clopidogrel 75 mg)"
+      "composition": "ATORTEST-CZ (Atorvastatin 40 mg & Clopidogrel 75 mg)",
+      "chemical_name": "Atorvastatin Calcium + Clopidogrel Bisulfate",
+      "company_name": "Cadila Healthcare Ltd (Zydus)"
     },
     {
       "id": 3,
@@ -34,7 +38,9 @@
       "savings": "26%",
       "image": "/assets/Cardiology/heart3.png",
       "description": "It helps reduce the risk of heart attack, stroke, and angina.",
-      "composition": "CLOPVEX–AT20 (Clopidogrel 75mg + Atorvastatin 20mg)"
+      "composition": "CLOPVEX–AT20 (Clopidogrel 75mg + Atorvastatin 20mg)",
+      "chemical_name": "Clopidogrel Bisulfate + Atorvastatin Calcium",
+      "company_name": "Dr. Reddy's Laboratories Ltd"
     },
     {
       "id": 4,
@@ -46,7 +52,9 @@
       "savings": "27%",
       "image": "/assets/Cardiology/heart4.png",
       "description": "This triple-action formula helps lower cholesterol, prevent blood clots, and reduce the risk of heart attack and stroke.",
-      "composition": "ROSUTAS PLUS (Rosuvastatin 10mg, Aspirin75 mg, Clopidogrel 75mg)"
+      "composition": "ROSUTAS PLUS (Rosuvastatin 10mg, Aspirin75 mg, Clopidogrel 75mg)",
+      "chemical_name": "Rosuvastatin Calcium + Acetylsalicylic Acid + Clopidogrel Bisulfate",
+      "company_name": "Lupin Limited"
     },
     {
       "id": 5,
@@ -58,7 +66,9 @@
       "savings": "34%",
       "image": "/assets/Cardiology/heart5.png",
       "description": "It helps prevent blood clot formation, reducing the risk of heart attack and stroke.",
-      "composition": "Clopilet (Clopidogrel 75 mg)"
+      "composition": "Clopilet (Clopidogrel 75 mg)",
+      "chemical_name": "Clopidogrel Bisulfate",
+      "company_name": "Cadila Healthcare Ltd (Zydus)"
     },
     {
       "id": 6,
@@ -70,7 +80,9 @@
       "savings": "34%",
       "image": "/assets/Cardiology/heart6.png",
       "description": "It helps prevent harmful blood clots, lowering the risk of heart attack and stroke.",
-      "composition": "Clopivas (Clopidogrel 75mg/150mg)"
+      "composition": "Clopivas (Clopidogrel 75mg/150mg)",
+      "chemical_name": "Clopidogrel Bisulfate",
+      "company_name": "Sun Pharmaceutical Industries Ltd"
     },
     {
       "id": 7,
@@ -82,7 +94,9 @@
       "savings": "34%",
       "image": "/assets/Cardiology/heart7.png",
       "description": "Trusted Clopidogrel formulation",
-      "composition": "Clopidogrel Bisulfate 75mg"
+      "composition": "Clopidogrel Bisulfate 75mg",
+      "chemical_name": "Clopidogrel Bisulfate",
+      "company_name": "Torrent Pharmaceuticals Ltd"
     },
     {
       "id": 8,
@@ -94,7 +108,9 @@
       "savings": "34%",
       "image": "/assets/Cardiology/heart8.png",
       "description": "Reliable antiplatelet therapy",
-      "composition": "Clopidogrel Bisulfate 75mg"
+      "composition": "Clopidogrel Bisulfate 75mg",
+      "chemical_name": "Clopidogrel Bisulfate",
+      "company_name": "Aurobindo Pharma Ltd"
     },
     {
       "id": 9,
@@ -106,7 +122,9 @@
       "savings": "32%",
       "image": "/assets/Cardiology/heart9.png",
       "description": "Prevents blood clot formation and reduces risk of heart attacks.",
-      "composition": "Ecosprin (Aspirin 75mg)"
+      "composition": "Ecosprin (Aspirin 75mg)",
+      "chemical_name": "Acetylsalicylic Acid",
+      "company_name": "USV Private Limited"
     },
     {
       "id": 10,
@@ -118,7 +136,9 @@
       "savings": "33%",
       "image": "/assets/Cardiology/heart10.png",
       "description": "Lowers cholesterol levels and reduces cardiovascular risks.",
-      "composition": "Rozavel (Rosuvastatin 10mg)"
+      "composition": "Rozavel (Rosuvastatin 10mg)",
+      "chemical_name": "Rosuvastatin Calcium",
+      "company_name": "Sun Pharmaceutical Industries Ltd"
     },
     {
       "id": 11,
@@ -130,7 +150,9 @@
       "savings": "33%",
       "image": "/assets/Cardiology/heart11.png",
       "description": "Effective statin therapy for cholesterol management.",
-      "composition": "Atorva (Atorvastatin 10mg)"
+      "composition": "Atorva (Atorvastatin 10mg)",
+      "chemical_name": "Atorvastatin Calcium",
+      "company_name": "Lupin Limited"
     },
     {
       "id": 12,
@@ -142,7 +164,9 @@
       "savings": "33%",
       "image": "/assets/Cardiology/heart12.png",
       "description": "Advanced antiplatelet therapy for acute coronary syndrome.",
-      "composition": "Brilinta (Ticagrelor 90mg)"
+      "composition": "Brilinta (Ticagrelor 90mg)",
+      "chemical_name": "Ticagrelor",
+      "company_name": "AstraZeneca Pharma India Ltd"
     },
     {
       "id": 13,
@@ -154,7 +178,9 @@
       "savings": "33%",
       "image": "/assets/Cardiology/heart13.png",
       "description": "Potent antiplatelet medication for heart attack prevention.",
-      "composition": "Effient (Prasugrel 10mg)"
+      "composition": "Effient (Prasugrel 10mg)",
+      "chemical_name": "Prasugrel Hydrochloride",
+      "company_name": "Eli Lilly and Company (India) Pvt. Ltd."
     },
     {
       "id": 14,
@@ -166,7 +192,9 @@
       "savings": "33%",
       "image": "/assets/Cardiology/heart14.png",
       "description": "Reduces cholesterol absorption in the intestine.",
-      "composition": "Ezetrol (Ezetimibe 10mg)"
+      "composition": "Ezetrol (Ezetimibe 10mg)",
+      "chemical_name": "Ezetimibe",
+      "company_name": "MSN Laboratories Pvt. Ltd."
     },
     {
       "id": 15,
@@ -178,7 +206,9 @@
       "savings": "33%",
       "image": "/assets/Cardiology/heart15.png",
       "description": "Higher strength antiplatelet therapy for enhanced protection.",
-      "composition": "Clopivas (Clopidogrel 150mg)"
+      "composition": "Clopivas (Clopidogrel 150mg)",
+      "chemical_name": "Clopidogrel Bisulfate",
+      "company_name": "Cipla Ltd"
     },
     {
       "id": 16,
@@ -190,7 +220,9 @@
       "savings": "33%",
       "image": "/assets/Cardiology/heart16.png",
       "description": "Higher potency statin for aggressive cholesterol control.",
-      "composition": "Rozavel (Rosuvastatin 20mg)"
+      "composition": "Rozavel (Rosuvastatin 20mg)",
+      "chemical_name": "Rosuvastatin Calcium",
+      "company_name": "Sun Pharmaceutical Industries Ltd"
     },
     {
       "id": 17,
@@ -202,7 +234,9 @@
       "savings": "33%",
       "image": "/assets/Cardiology/heart17.png",
       "description": "Medium strength statin for balanced cholesterol management.",
-      "composition": "Atorva (Atorvastatin 20mg)"
+      "composition": "Atorva (Atorvastatin 20mg)",
+      "chemical_name": "Atorvastatin Calcium",
+      "company_name": "Lupin Limited"
     },
     {
       "id": 18,
@@ -214,7 +248,9 @@
       "savings": "34%",
       "image": "/assets/Cardiology/heart18.png",
       "description": "Higher strength aspirin for enhanced antiplatelet effect.",
-      "composition": "Ecosprin (Aspirin 150mg)"
+      "composition": "Ecosprin (Aspirin 150mg)",
+      "chemical_name": "Acetylsalicylic Acid",
+      "company_name": "USV Private Limited"
     }
   ],
 
@@ -225,6 +261,9 @@
     "originalPrice": "₹1,999",
     "savings": "35%",
     "image": "/assets/Cardiology/Cardiac_Care_Combo_Pack.jpg",
-    "description": "Complete heart attack prevention medication bundle with antiplatelet and statin therapy"
+    "description": "Complete heart attack prevention medication bundle with antiplatelet and statin therapy",
+    "composition": "Contains: Clopidogrel 75mg, Aspirin 75mg, Atorvastatin 10mg",
+    "chemical_name": "Clopidogrel Bisulfate + Acetylsalicylic Acid + Atorvastatin Calcium",
+    "company_name": "CardioCare Pharmaceuticals"
   }
 }
