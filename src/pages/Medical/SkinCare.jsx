@@ -45,7 +45,7 @@ const SkinCare = () => {
   }, [sortBy]);
 
   const handleProductClick = (product) => {
-    navigate(`/product/SkinCareDetail/${product.id}`, { state: { product } });
+    navigate(`/ProductDetail/SkinCareDetail/${product.id}`, { state: { product } });
   };
 
   const categories = ["all", ...new Set(products.map(product => product.category))];
@@ -65,7 +65,7 @@ const SkinCare = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium capitalize ${
                 selectedCategory === category
-                  ? "bg-orange-600 text-white"
+                  ? "bg-blue-600 text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
             >
@@ -77,7 +77,7 @@ const SkinCare = () => {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="name">Sort by Name</option>
           <option value="price-low">Price: Low to High</option>
@@ -128,7 +128,7 @@ const SkinCare = () => {
                   e.stopPropagation();
                   // Add to cart logic
                 }}
-                className="w-full bg-orange-600 text-white py-2 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
+                className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
                 Add to Cart
               </button>

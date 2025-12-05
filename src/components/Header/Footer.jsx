@@ -93,6 +93,7 @@
 
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -182,26 +183,43 @@ const Footer = () => {
                     {[
                         {
                             title: "Shop",
-                            links: ["Medicines", "Wellness", "Personal Care", "Baby Care", "Supplements", "Medical Devices"]
+                            links: [
+                                { name: "Medicines", url: "/home/all" },
+                                { name: "Baby Care", url: "/home/baby-care" },
+                                { name: "Cardiac Care", url: "/home/cardiac-care" },
+                                { name: "Stomach Care", url: "/home/stomach-care" }
+                            ]
                         },
                         {
-                            title: "Support", 
-                            links: ["Customer Care", "Order Tracking", "Returns & Refunds", "Prescription Help", "Shipping Info"]
+                            title: "Support",
+                            links: [
+                                { name: "Customer Care", url: "/customer-care" },
+                                { name: "Order Tracking", url: "/order-tracking" },
+                                { name: "Returns & Refunds", url: "/returns-refunds" },
+                                { name: "Prescription Help", url: "/prescription-help" },
+                                { name: "Shipping Info", url: "/shipping-info" }
+                            ]
                         },
                         {
                             title: "Information",
-                            links: ["About Us", "Our Stores", "FAQs", "Terms & Conditions", "Privacy Policy"],
-                            url: ['/about']
+                            links: [
+                                { name: "About Us", url: "/about" },
+                                { name: "Terms & Conditions", url: "/terms" },
+                                { name: "Privacy Policy", url: "/privacy" }
+                            ]
                         }
                     ].map((section, idx) => (
                         <div key={idx}>
                             <h4 className="font-bold text-lg mb-4 text-blue-300">{section.title}</h4>
                             <ul className="space-y-3 text-white/80">
                                 {section.links.map((item) => (
-                                    <li key={item}>
-                                        <a href={section.url} className="hover:text-blue-300 transition text-sm md:text-base">
-                                            {item}
-                                        </a>
+                                    <li key={item.name}>
+                                        <Link
+                                            to={item.url}
+                                            className="hover:text-blue-300 transition text-sm md:text-base"
+                                        >
+                                            {item.name}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>

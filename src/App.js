@@ -34,6 +34,8 @@ import OrderConfirmation from "./pages/Checkout/OrderConfirmation";
 import ScrollToTop from "./components/ScrollToTop";
 import TrackOrder from "./pages/Orders/TrackOrder";
 import About from "./components/About";
+import TermsConditions from "./components/TermsConditions";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
 // Protected Route
 const ProtectedRoute = ({ children }) => {
@@ -181,6 +183,8 @@ const App = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path='/about' element={<About />} />
             <Route path="/home/*" element={<Home />} />
+            <Route path='/terms' element={<TermsConditions/>} />
+            <Route path="/privacy" element={<PrivacyPolicy/>} />
  
             {/* Product Detail */}
             <Route path="/ProductDetail/*" element={<ProductDetail />} />

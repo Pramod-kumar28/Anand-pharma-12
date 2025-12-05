@@ -1,9 +1,14 @@
-// src/pages/Detail/SkinCareDetail.jsx
+// src/pages/Detail/ProductDetail.jsx
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-import skinData from "../../data/skincare.json";
 
-const SkinCareDetail = () => {
+const ProductDetail = ({ 
+  title = "Product Details",
+  data,
+  relatedCategories = [],
+  extraSections = [],
+  defaultCategory = "Product"
+}) => {
   const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,21 +19,27 @@ const SkinCareDetail = () => {
 
   useEffect(() => {
     if (location.state?.product) {
-      setProduct(location.state.product);
-      findRelatedProducts(location.state.product);
-    } else {
-      // Find product in the data
-      const foundProduct = skinData.find(p => p.id === parseInt(id));
-      setProduct(foundProduct);
-      if (foundProduct) findRelatedProducts(foundProduct);
+      const prod = location.state.product;
+      setProduct(prod);
+      findRelatedProducts(prod);
+    } else if (data && data.length > 0) {
+      const foundProduct = data.find(p => p.id === parseInt(id));
+      if (foundProduct) {
+        setProduct(foundProduct);
+        findRelatedProducts(foundProduct);
+      }
     }
-  }, [id, location.state]);
+  }, [id, location.state, data]);
 
   const findRelatedProducts = (currentProduct) => {
-    const related = skinData
+    if (!data || data.length === 0) return;
+    
+    const related = data
       .filter(p => 
         p.id !== currentProduct.id && 
-        (p.category === currentProduct.category || p.brand === currentProduct.brand)
+        (relatedCategories.includes(p.category) || 
+         p.category === currentProduct.category ||
+         p.brand === currentProduct.brand)
       )
       .slice(0, 4);
     
@@ -55,10 +66,8 @@ const SkinCareDetail = () => {
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
     
     if (existingItemIndex > -1) {
-      // Update quantity if product exists
       cart[existingItemIndex].quantity += quantity;
     } else {
-      // Add new product to cart
       const cartProduct = {
         id: product.id,
         name: product.name,
@@ -67,24 +76,18 @@ const SkinCareDetail = () => {
         originalPrice: product.originalPriceNumeric,
         image: product.image,
         category: product.category,
-        prescriptionRequired: false,
-        quantity: quantity,
-        skinType: "All Skin Types" // Add skincare-specific field
+        quantity: quantity
       };
       cart.push(cartProduct);
     }
     
     saveCart(cart);
     
-    // Show success message
     setShowCartSuccess(true);
     setTimeout(() => setShowCartSuccess(false), 3000);
-    
-    console.log(`Added ${quantity} of ${product.name} to cart`);
   };
 
   const handleBuyNow = () => {
-    // Add to cart first, then navigate to checkout
     handleAddToCart();
     setTimeout(() => {
       navigate("/checkout");
@@ -109,8 +112,8 @@ const SkinCareDetail = () => {
       <nav className="flex mb-6" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-gray-600">
           <li>
-            <button onClick={() => navigate("/home/skin-care")} className="hover:text-blue-600">
-              Skin Care
+            <button onClick={() => navigate(-1)} className="hover:text-green-600">
+              {title}
             </button>
           </li>
           <li>/</li>
@@ -147,33 +150,31 @@ const SkinCareDetail = () => {
                 alt={product.name}
                 className="w-full h-full object-contain rounded-lg"
                 onError={(e) => {
-                  e.target.src = "https://via.placeholder.com/400x400?text=Skin+Care";
+                  e.target.src = "https://via.placeholder.com/400x400?text=Product+Image";
                 }}
               />
             </div>
           </div>
           
           {/* Quick Facts */}
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-            <h3 className="font-semibold text-purple-900 mb-3">Quick Facts</h3>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <h3 className="font-semibold text-blue-900 mb-3">Quick Facts</h3>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div className="flex flex-col">
-                <span className="text-purple-600">Category:</span>
+                <span className="text-blue-600">Category:</span>
                 <span className="font-medium">{product.category}</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-purple-600">Brand:</span>
+                <span className="text-blue-600">Brand:</span>
                 <span className="font-medium">{product.brand}</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-purple-600">Best For:</span>
-                <span className="font-medium">
-                  {product.name.includes("Sensitive") ? "Sensitive Skin" : "All Skin Types"}
-                </span>
+                <span className="text-blue-600">SKU:</span>
+                <span className="font-medium">PROD-{product.id}</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-purple-600">Cruelty-Free:</span>
-                <span className="font-medium text-green-600">Yes</span>
+                <span className="text-blue-600">Availability:</span>
+                <span className="font-medium text-green-600">In Stock</span>
               </div>
             </div>
           </div>
@@ -184,17 +185,17 @@ const SkinCareDetail = () => {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-green-600">Price:</span>
-                <span className="font-medium">₹{product.priceNumeric} × {quantity}</span>
+                <span className="font-medium">₹{product.priceNumeric.toLocaleString()} × {quantity}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-green-600">Total:</span>
-                <span className="font-bold text-lg">₹{product.priceNumeric * quantity}</span>
+                <span className="font-bold text-lg">₹{(product.priceNumeric * quantity).toLocaleString()}</span>
               </div>
               {product.originalPriceNumeric > product.priceNumeric && (
                 <div className="flex justify-between">
                   <span className="text-green-600">You Save:</span>
                   <span className="text-green-600 font-semibold">
-                    ₹{(product.originalPriceNumeric - product.priceNumeric) * quantity}
+                    ₹{((product.originalPriceNumeric - product.priceNumeric) * quantity).toLocaleString()}
                   </span>
                 </div>
               )}
@@ -216,23 +217,23 @@ const SkinCareDetail = () => {
           <div className="flex items-center gap-4 mb-6">
             <div className="flex items-center gap-1 bg-yellow-100 px-3 py-1 rounded-full">
               <span className="text-yellow-400">⭐</span>
-              <span className="font-semibold text-yellow-700">4.7</span>
+              <span className="font-semibold text-yellow-700">4.5</span>
               <span className="text-yellow-600 text-sm">(1,234 reviews)</span>
             </div>
             <div className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full">
-              In Stock • Free Shipping
+              In Stock • Fast Delivery
             </div>
           </div>
 
           {/* Price */}
           <div className="flex items-center gap-4 mb-6">
             <span className="text-3xl font-bold text-gray-900">
-              ₹{product.priceNumeric}
+              ₹{product.priceNumeric.toLocaleString()}
             </span>
             {product.originalPriceNumeric > product.priceNumeric && (
               <>
                 <span className="text-xl text-gray-500 line-through">
-                  ₹{product.originalPriceNumeric}
+                  ₹{product.originalPriceNumeric.toLocaleString()}
                 </span>
                 <span className="bg-green-100 text-green-600 px-2 py-1 rounded text-sm font-semibold">
                   Save {product.savings}
@@ -250,7 +251,7 @@ const SkinCareDetail = () => {
           {/* Key Features */}
           {product.keyFeatures && product.keyFeatures.length > 0 && (
             <div className="mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Key Benefits</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Key Features</h3>
               <ul className="list-disc list-inside text-gray-600 space-y-1">
                 {product.keyFeatures.map((feature, index) => (
                   <li key={index} className="flex items-start">
@@ -270,10 +271,10 @@ const SkinCareDetail = () => {
             </div>
           )}
 
-          {/* Ingredients */}
+          {/* Ingredients/Specifications */}
           {product.ingredients && (
             <div className="mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Key Ingredients</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Specifications</h3>
               <p className="text-gray-600 bg-gray-50 p-3 rounded-lg border">
                 {product.ingredients}
               </p>
@@ -283,13 +284,8 @@ const SkinCareDetail = () => {
           {/* Warnings */}
           {product.warnings && (
             <div className="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h3 className="font-semibold text-yellow-900 mb-2">⚠️ Important Safety Information</h3>
+              <h3 className="font-semibold text-yellow-900 mb-2">Important Information</h3>
               <p className="text-yellow-800 text-sm">{product.warnings}</p>
-              <div className="mt-2 text-xs text-yellow-700">
-                <p>• Always do a patch test before full application</p>
-                <p>• Discontinue use if irritation occurs</p>
-                <p>• Keep out of reach of children</p>
-              </div>
             </div>
           )}
 
@@ -313,37 +309,36 @@ const SkinCareDetail = () => {
                 </button>
               </div>
               <span className="text-sm text-gray-500">
-                (Max: 5 per order)
+                (Max: 10 per order)
               </span>
             </div>
 
             <div className="flex gap-4 mb-3">
               <button
                 onClick={handleAddToCart}
-                className="flex-1 bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
               >
-                <span>🛍️</span>
+                <span>🛒</span>
                 Add to Cart
               </button>
               <button
                 onClick={handleBuyNow}
-                className="flex-1 bg-pink-600 text-white py-3 rounded-lg font-semibold hover:bg-pink-700 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
               >
                 <span>⚡</span>
                 Buy Now
               </button>
             </div>
 
-            {/* Quick Cart Actions */}
             <div className="flex gap-3">
               <button
                 onClick={handleViewCart}
-                className="flex-1 border border-purple-600 text-purple-600 py-2 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
+                className="flex-1 border border-green-600 text-green-600 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors"
               >
                 View Cart
               </button>
               <button
-                onClick={() => navigate("/home")}
+                onClick={() => navigate(-1)}
                 className="flex-1 border border-gray-600 text-gray-600 py-2 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
                 Continue Shopping
@@ -353,92 +348,23 @@ const SkinCareDetail = () => {
         </div>
       </div>
 
-      {/* Skincare Routine Tips */}
-      <div className="border-t pt-8 mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Skincare Routine Tips</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-gray-200 rounded-lg p-4">
-            <h3 className="font-semibold text-gray-900 mb-2">🌞 Morning Routine</h3>
-            <ul className="text-sm text-gray-600 space-y-1 list-decimal list-inside">
-              <li>Cleanse with a gentle face wash</li>
-              <li>Apply toner to balance pH</li>
-              <li>Use serum (Vitamin C for day)</li>
-              <li>Moisturize to hydrate skin</li>
-              <li>Always finish with sunscreen SPF 30+</li>
-            </ul>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4">
-            <h3 className="font-semibold text-gray-900 mb-2">🌙 Night Routine</h3>
-            <ul className="text-sm text-gray-600 space-y-1 list-decimal list-inside">
-              <li>Double cleanse to remove makeup & sunscreen</li>
-              <li>Use exfoliating toner (2-3 times weekly)</li>
-              <li>Apply treatment serum (Retinol, Niacinamide)</li>
-              <li>Moisturize with night cream</li>
-              <li>Use eye cream for delicate area</li>
-            </ul>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4">
-            <h3 className="font-semibold text-gray-900 mb-2">🎯 Weekly Treatments</h3>
-            <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-              <li>Exfoliate 1-2 times per week</li>
-              <li>Use clay mask for deep cleansing</li>
-              <li>Sheet mask for hydration boost</li>
-              <li>Chemical peel as per skin tolerance</li>
-              <li>Always moisturize after treatments</li>
-            </ul>
-          </div>
+      {/* Extra Sections */}
+      {extraSections.map((section, index) => (
+        <div key={index} className="mt-8">
+          {section}
         </div>
-      </div>
-
-      {/* Skincare Benefits */}
-      <div className="bg-pink-50 border border-pink-200 rounded-lg p-6 mb-8">
-        <h3 className="text-xl font-bold text-pink-900 mb-4">🌟 Benefits of Good Skincare</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-          <div className="flex items-center gap-2">
-            <span className="text-pink-500">✨</span>
-            <span>Healthy, glowing complexion</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-pink-500">🛡️</span>
-            <span>Protects from environmental damage</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-pink-500">⏳</span>
-            <span>Delays signs of aging</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-pink-500">🧴</span>
-            <span>Maintains skin hydration</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-pink-500">🎯</span>
-            <span>Targets specific skin concerns</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-pink-500">😊</span>
-            <span>Boosts confidence</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-pink-500">🌿</span>
-            <span>Clean, natural ingredients</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-pink-500">❤️</span>
-            <span>Improves skin barrier function</span>
-          </div>
-        </div>
-      </div>
+      ))}
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (
         <div className="border-t pt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Recommended for You</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Products</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedProducts.map(relatedProduct => (
               <div
                 key={relatedProduct.id}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer border border-gray-100"
-                onClick={() => navigate(`/ProductDetail/SkinCareDetail/${relatedProduct.id}`, { 
+                onClick={() => navigate(`/ProductDetail/${relatedProduct.id}`, { 
                   state: { product: relatedProduct } 
                 })}
               >
@@ -449,12 +375,12 @@ const SkinCareDetail = () => {
                       alt={relatedProduct.name}
                       className="w-full h-full object-cover rounded-t-lg"
                       onError={(e) => {
-                        e.target.src = "https://via.placeholder.com/300x200?text=Skin+Care";
+                        e.target.src = "https://via.placeholder.com/300x200?text=Product";
                       }}
                     />
                   </div>
                   {relatedProduct.savings && (
-                    <span className="absolute top-2 left-2 bg-pink-500 text-white px-2 py-1 rounded text-xs font-semibold">
+                    <span className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold">
                       {relatedProduct.savings} OFF
                     </span>
                   )}
@@ -466,11 +392,11 @@ const SkinCareDetail = () => {
                   <p className="text-gray-600 text-xs mb-2">{relatedProduct.brand}</p>
                   <div className="flex items-center gap-2">
                     <span className="text-lg font-bold text-gray-900">
-                      ₹{relatedProduct.priceNumeric}
+                      ₹{relatedProduct.priceNumeric.toLocaleString()}
                     </span>
                     {relatedProduct.originalPriceNumeric > relatedProduct.priceNumeric && (
                       <span className="text-sm text-gray-500 line-through">
-                        ₹{relatedProduct.originalPriceNumeric}
+                        ₹{relatedProduct.originalPriceNumeric.toLocaleString()}
                       </span>
                     )}
                   </div>
@@ -480,27 +406,8 @@ const SkinCareDetail = () => {
           </div>
         </div>
       )}
-
-      {/* Skin Type Guide */}
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mt-8">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">💡 Skin Type Guide</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
-          <div className="bg-white p-4 rounded-lg border">
-            <h4 className="font-semibold text-blue-600 mb-2">Normal Skin</h4>
-            <p className="text-gray-600">Balanced, not too oily or dry. Use gentle, hydrating products.</p>
-          </div>
-          <div className="bg-white p-4 rounded-lg border">
-            <h4 className="font-semibold text-green-600 mb-2">Oily Skin</h4>
-            <p className="text-gray-600">Shiny, prone to acne. Use oil-free, non-comedogenic products.</p>
-          </div>
-          <div className="bg-white p-4 rounded-lg border">
-            <h4 className="font-semibold text-red-600 mb-2">Dry Skin</h4>
-            <p className="text-gray-600">Flaky, tight feeling. Use rich, creamy moisturizers.</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
 
-export default SkinCareDetail;
+export default ProductDetail;

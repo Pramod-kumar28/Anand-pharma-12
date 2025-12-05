@@ -425,7 +425,7 @@ const All = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-1 sm:px-1 lg:px-8 py-8">
       {/* Hero Section */}
       <div className="mb-12 text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -438,7 +438,7 @@ const All = () => {
       </div>
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
           <div className="text-3xl font-bold text-blue-600 mb-2">16+</div>
           <div className="text-gray-600">Categories</div>
@@ -470,7 +470,7 @@ const All = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {categories.map((category) => (
             <div
               key={category.id}
