@@ -7,7 +7,7 @@
     "priceNumeric": 699,
     "originalPriceNumeric": 899,
     "savings": "22%",
-    "image": "/assets/Skincareimg/vitamin-c-serum.jpg",
+    "image": "/assets/Skincare/vitamin-c-serum.jpg",
     "description": "Brightening serum with Vitamin C and Hyaluronic Acid for radiant, even-toned skin.",
     "keyFeatures": [
       "Reduces dark spots",
@@ -26,7 +26,7 @@
     "priceNumeric": 499,
     "originalPriceNumeric": 650,
     "savings": "23%",
-    "image": "/assets/Skincareimg/aloe-gel.jpg",
+    "image": "/assets/Skincare/aloe-gel.jpg",
     "description": "Soothing 99% Aloe Vera gel for instant hydration and calming irritated skin.",
     "keyFeatures": [
       "Soothes sunburn",
@@ -45,7 +45,7 @@
     "priceNumeric": 599,
     "originalPriceNumeric": 750,
     "savings": "20%",
-    "image": "/assets/Skincareimg/niacinamide.jpg",
+    "image": "/assets/Skincare/niacinamide.jpg",
     "description": "Targets blemishes, minimizes pores, and regulates sebum production.",
     "keyFeatures": [
       "Reduces pore appearance",
@@ -64,7 +64,7 @@
     "priceNumeric": 449,
     "originalPriceNumeric": 550,
     "savings": "18%",
-    "image": "/assets/Skincareimg/sunscreen.jpg",
+    "image": "/assets/Skincare/sunscreen.jpg",
     "description": "Ultra-light, non-greasy sunscreen with broad spectrum UVA/UVB protection.",
     "keyFeatures": [
       "PA++++ protection",
@@ -83,7 +83,7 @@
     "priceNumeric": 399,
     "originalPriceNumeric": 500,
     "savings": "20%",
-    "image": "/assets/Skincareimg/salicylic-cleanser.jpg",
+    "image": "/assets/Skincare/salicylic-cleanser.jpg",
     "description": "Exfoliating cleanser that unclogs pores and fights acne-causing bacteria.",
     "keyFeatures": [
       "2% Salicylic Acid",
@@ -102,7 +102,7 @@
     "priceNumeric": 899,
     "originalPriceNumeric": 1199,
     "savings": "25%",
-    "image": "/assets/Skincareimg/retinol-cream.jpg",
+    "image": "/assets/Skincare/retinol-cream.jpg",
     "description": "Anti-aging cream with Retinol to reduce wrinkles and improve skin elasticity.",
     "keyFeatures": [
       "Diminishes fine lines",
@@ -121,7 +121,7 @@
     "priceNumeric": 649,
     "originalPriceNumeric": 799,
     "savings": "19%",
-    "image": "/assets/Skincareimg/hyaluronic-moisturizer.jpg",
+    "image": "/assets/Skincare/hyaluronic-moisturizer.jpg",
     "description": "Lightweight gel-cream that provides 72-hour hydration with Hyaluronic Acid.",
     "keyFeatures": [
       "Intense hydration",
@@ -140,7 +140,7 @@
     "priceNumeric": 349,
     "originalPriceNumeric": 450,
     "savings": "22%",
-    "image": "/assets/Skincareimg/charcoal-mask.jpg",
+    "image": "/assets/Skincare/charcoal-mask.jpg",
     "description": "Purifying clay mask with charcoal to draw out impurities and excess oil.",
     "keyFeatures": [
       "Deep cleansing",
@@ -159,7 +159,7 @@
     "priceNumeric": 299,
     "originalPriceNumeric": 399,
     "savings": "25%",
-    "image": "/assets/Skincareimg/tea-tree-treatment.jpg",
+    "image": "/assets/Skincare/tea-tree-treatment.jpg",
     "description": "Natural antiseptic treatment to reduce redness and size of acne spots.",
     "keyFeatures": [
       "Anti-inflammatory",
@@ -178,7 +178,7 @@
     "priceNumeric": 799,
     "originalPriceNumeric": 999,
     "savings": "20%",
-    "image": "/assets/Skincareimg/aha-bha-peel.jpg",
+    "image": "/assets/Skincare/aha-bha-peel.jpg",
     "description": "Professional-grade at-home peel to improve skin radiance and texture.",
     "keyFeatures": [
       "Exfoliates deeply",
@@ -197,7 +197,7 @@
     "priceNumeric": 899,
     "originalPriceNumeric": 1099,
     "savings": "18%",
-    "image": "/assets/Skincareimg/rosehip-oil.jpg",
+    "image": "/assets/Skincare/rosehip-oil.jpg",
     "description": "Cold-pressed Rosehip oil rich in antioxidants and essential fatty acids.",
     "keyFeatures": [
       "Fades scars & stretch marks",
@@ -216,7 +216,7 @@
     "priceNumeric": 749,
     "originalPriceNumeric": 899,
     "savings": "17%",
-    "image": "/assets/Skincareimg/centella-cream.jpg",
+    "image": "/assets/Skincare/centella-cream.jpg",
     "description": "Soothing cream with Centella Asiatica to repair and calm sensitive skin.",
     "keyFeatures": [
       "Reduces redness",
@@ -235,7 +235,7 @@
     "priceNumeric": 549,
     "originalPriceNumeric": 699,
     "savings": "21%",
-    "image": "/assets/Skincareimg/glycolic-toner.jpg",
+    "image": "/assets/Skincare/glycolic-toner.jpg",
     "description": "Exfoliating toner to improve skin clarity, texture, and radiance.",
     "keyFeatures": [
       "Gentle exfoliation",
@@ -254,7 +254,7 @@
     "priceNumeric": 1199,
     "originalPriceNumeric": 1499,
     "savings": "20%",
-    "image": "/assets/Skincareimg/snail-essence.jpg",
+    "image": "/assets/Skincare/snail-essence.jpg",
     "description": "Hydrating and repairing essence with 96% Snail Secretion Filtrate.",
     "keyFeatures": [
       "Intense hydration",
@@ -273,7 +273,7 @@
     "priceNumeric": 1899,
     "originalPriceNumeric": 2299,
     "savings": "17%",
-    "image": "/assets/Skincareimg/ceramide-cream.jpg",
+    "image": "/assets/Skincare/ceramide-cream.jpg",
     "description": "Rich cream that restores and strengthens the skin's natural moisture barrier.",
     "keyFeatures": [
       "Repairs damaged barrier",
