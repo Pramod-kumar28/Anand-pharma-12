@@ -376,56 +376,42 @@ export default function LandingPage() {
                     </section>
 
                     {/* ====== ANAND PHARMA VISION SECTION ====== */}
-                    <section className="mb-12 bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-gray-200">
+                    <section className="mb-12 bg-blue-50 rounded-xl p-6 sm:p-8 shadow-sm border border-gray-200">
                         <div className="text-center mb-8">
                             <div className="flex items-center justify-center gap-3 mb-4">
-                                <h2 className="text-3xl font-bold text-gray-800">Anand Pharma</h2>
+                                <h2 className="text-3xl font-bold text-gray-800">About Anand Pharma</h2>
                             </div>
-                            <p className="text-gray-600 max-w-4xl mx-auto text-lg">
+                            <p className="text-gray-600 max-w-4xl mx-auto text-lg mb-4">
                                 At Anand Pharma, our vision is to make healthcare truly accessible where
                                 genuine medicines reach every doorstep in just 15 to 30 minutes. We believe that
                                 when it comes to health, every moment matters, and timely access to medication
                                 should never be a privilege, but a right.
                             </p>
+                            <p className="text-gray-600 max-w-4xl mx-auto text-lg mb-4">
+                                Our innovative platform empowers users with real choices, offering equivalent
+                                medicines with the same formula across multiple trusted brands, complete with
+                                transparent pricing. This ensures that every customer can choose confidently
+                                balancing quality, affordability, and trust.
+                            </p>
+                            <p className="text-gray-600 max-w-4xl mx-auto text-lg mb-4">
+                                By combining advanced technology, licensed pharmacy expertise, and intelligent
+                                logistics, we are building a healthcare ecosystem that’s faster, safer, and more
+                                reliable than ever before.
+                            </p>
+
+                            <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 text-white">
+                                <h4 className="text-xl font-bold mb-3"><i className="fas fa-heart text-white "></i> Our Commitment</h4>
+                                <p className="leading-relaxed">
+                                    At Anand Pharma, we don't just deliver medicines we deliver trust,
+                                    transparency, and timely care to every home, every time.
+                                </p>
+                            </div>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            {/* Left Content */}
+                        <div className="text-center">
+                             {/* Right Content */}
                             <div className="space-y-6">
-                                <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
-                                    <div className="flex items-start gap-4">
-                                        <div className="flex-shrink-0 mt-1">
-                                            <i className="fas fa-check-circle text-blue-600 text-2xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 className="text-xl font-bold text-gray-800 mb-3">Transparent Choices</h4>
-                                            <p className="text-gray-600 leading-relaxed">
-                                                Our innovative platform empowers users with real choices, offering equivalent
-                                                medicines with the same formula across multiple trusted brands, complete with
-                                                transparent pricing. This ensures that every customer can choose confidently
-                                                balancing quality, affordability, and trust.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Right Content */}
-                            <div className="space-y-6">
-                                <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 text-white">
-                                    <div className="flex items-start gap-4">
-                                        <div className="flex-shrink-0 mt-1">
-                                            <i className="fas fa-heart text-white text-2xl"></i>
-                                        </div>
-                                        <div>
-                                            <h4 className="text-xl font-bold mb-3">Our Commitment</h4>
-                                            <p className="leading-relaxed">
-                                                At Anand Pharma, we don't just deliver medicines we deliver trust,
-                                                transparency, and timely care to every home, every time.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
 
                             </div>
