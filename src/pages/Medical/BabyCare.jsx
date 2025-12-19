@@ -92,7 +92,7 @@ const BabyCare = () => {
       {/* Baby Care Tips */}
       <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-blue-500 text-xl">👶</span>
+          <i className="fas fa-baby text-blue-500 text-xl"></i>
           <span className="text-blue-800 font-bold">Baby Care Tips</span>
         </div>
         <p className="text-blue-700 text-sm">
@@ -120,19 +120,22 @@ const BabyCare = () => {
         </div>
 
         {/* Sort Dropdown */}
-        <select
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          <option value="name">Sort by Name</option>
-          <option value="price-low">Price: Low to High</option>
-          <option value="price-high">Price: High to Low</option>
-          <option value="savings">Best Savings</option>
-        </select>
+        <div className="flex items-center gap-2">
+          <i className="fas fa-sort text-gray-500"></i>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="name">Sort by Name</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="savings">Best Savings</option>
+          </select>
+        </div>
       </div>
 
-      {/* Debug Info */}
+      {/* Debug Info - Optional (you can remove this in production) */}
       <div className="mb-4 p-2 bg-blue-100 rounded text-sm">
         Products loaded: {products.length} | Filtered: {filteredProducts.length}
       </div>
@@ -142,16 +145,16 @@ const BabyCare = () => {
         {filteredProducts.map(product => (
           <div
             key={product.id}
-            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100"
+            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100 overflow-hidden"
             onClick={() => handleProductClick(product)}
           >
             {/* Product Image */}
             <div className="relative">
-              <div className="w-full h-48 bg-gray-200 rounded-t-lg flex items-center justify-center">
+              <div className="w-full h-48 bg-gray-100 rounded-t-lg flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover rounded-t-lg"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
                     e.target.src = "https://via.placeholder.com/300x300?text=No+Image";
                   }}
@@ -166,8 +169,8 @@ const BabyCare = () => {
               )}
               
               {/* Rating Badge */}
-              <span className="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded text-sm font-semibold">
-                ⭐ 4.5+
+              <span className="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded text-sm font-semibold flex items-center gap-1">
+                <i className="fas fa-star text-xs"></i> 4.5+
               </span>
 
               {/* Category Badge */}
@@ -212,8 +215,9 @@ const BabyCare = () => {
                   console.log(`Added ${product.name} to cart`);
                   // Add to cart logic here
                 }}
-                className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
               >
+                <i className="fas fa-shopping-cart"></i>
                 Add to Cart
               </button>
             </div>
@@ -223,55 +227,32 @@ const BabyCare = () => {
 
       {filteredProducts.length === 0 && !loading && (
         <div className="text-center py-12">
+          <i className="fas fa-box-open text-gray-300 text-5xl mb-4"></i>
           <p className="text-gray-500 text-lg">No products found in this category.</p>
         </div>
       )}
 
-      {/* Baby Care Benefits */}
-      <div className="mt-12 border-t pt-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Benefits of Quality Baby Care</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">🛡️</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Safe & Gentle</h3>
-            <p className="text-sm text-gray-600">Specially formulated for delicate baby skin</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">💤</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Better Sleep</h3>
-            <p className="text-sm text-gray-600">Comfortable baby means peaceful sleep</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">🌱</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Natural Ingredients</h3>
-            <p className="text-sm text-gray-600">Chemical-free and pediatrician tested</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">😊</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Happy Baby</h3>
-            <p className="text-sm text-gray-600">Healthy, comfortable and content baby</p>
-          </div>
-        </div>
-      </div>
-
       {/* Age Group Recommendations */}
       <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-blue-900 mb-4">Recommended by Age Group</h3>
+        <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
+          <i className="fas fa-calendar-alt"></i>
+          Recommended by Age Group
+        </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
           <div className="flex items-center gap-2">
-            <span className="text-blue-500">•</span>
+            <i className="fas fa-baby text-blue-500"></i>
             <span>Newborn (0-3 months)</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-blue-500">•</span>
+            <i className="fas fa-child text-blue-500"></i>
             <span>Infant (3-12 months)</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-blue-500">•</span>
+            <i className="fas fa-walking text-blue-500"></i>
             <span>Toddler (1-3 years)</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-blue-500">•</span>
+            <i className="fas fa-user text-blue-500"></i>
             <span>Kids (3+ years)</span>
           </div>
         </div>
@@ -280,7 +261,7 @@ const BabyCare = () => {
       {/* Safety Standards */}
       <div className="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-green-500 text-xl">✅</span>
+          <i className="fas fa-shield-alt text-green-500 text-xl"></i>
           <span className="text-green-800 font-bold">Safety Standards</span>
         </div>
         <p className="text-green-700 text-sm">

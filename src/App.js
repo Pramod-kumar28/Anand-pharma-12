@@ -36,6 +36,7 @@ import TrackOrder from "./pages/Orders/TrackOrder";
 import About from "./components/About";
 import TermsConditions from "./components/TermsConditions";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import ContactPage from "./components/ContactPage";
 
 // Protected Route
 const ProtectedRoute = ({ children }) => {
@@ -185,7 +186,7 @@ const App = () => {
             <Route path="/home/*" element={<Home />} />
             <Route path='/terms' element={<TermsConditions/>} />
             <Route path="/privacy" element={<PrivacyPolicy/>} />
- 
+            <Route path="/contact" element={<ContactPage/>} />
             {/* Product Detail */}
             <Route path="/ProductDetail/*" element={<ProductDetail />} />
  

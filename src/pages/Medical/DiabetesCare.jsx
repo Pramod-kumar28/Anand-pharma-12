@@ -90,7 +90,7 @@ const DiabetesCare = () => {
       {/* Diabetes Health Tips */}
       <div className="mb-6 bg-teal-50 border border-teal-200 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-teal-500 text-xl">🩺</span>
+          <i className="fas fa-stethoscope text-teal-500 text-xl"></i>
           <span className="text-teal-800 font-bold">Diabetes Management Tips</span>
         </div>
         <p className="text-teal-700 text-sm">
@@ -151,8 +151,9 @@ const DiabetesCare = () => {
               )}
               
               {/* Rating Badge */}
-              <span className="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded text-sm font-semibold">
-                ⭐ {product.rating || "4.0+"}
+              <span className="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded text-sm font-semibold flex items-center gap-1">
+                <i className="fas fa-star"></i>
+                {product.rating || "4.0+"}
               </span>
 
               {/* Category Badge */}
@@ -199,8 +200,9 @@ const DiabetesCare = () => {
 
               {/* Medicine Type */}
               {product.medicine_type && (
-                <p className="text-xs text-teal-600 mb-2 font-medium">
-                  💊 {product.medicine_type}
+                <p className="text-xs text-teal-600 mb-2 font-medium flex items-center gap-1">
+                  <i className="fas fa-pills"></i>
+                  {product.medicine_type}
                 </p>
               )}
 
@@ -226,59 +228,32 @@ const DiabetesCare = () => {
         </div>
       )}
 
-      {/* Diabetes Care Benefits */}
-      <div className="mt-12 border-t pt-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Benefits of Proper Diabetes Care</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">📊</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Blood Sugar Control</h3>
-            <p className="text-sm text-gray-600">Maintain healthy glucose levels consistently</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">❤️</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Heart Health</h3>
-            <p className="text-sm text-gray-600">Reduce risk of cardiovascular complications</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">👁️</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Vision Protection</h3>
-            <p className="text-sm text-gray-600">Prevent diabetes-related eye problems</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">🦵</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Nerve Health</h3>
-            <p className="text-sm text-gray-600">Protect against neuropathy and foot care issues</p>
-          </div>
-        </div>
-      </div>
-
       {/* Important Information */}
       <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
         <h3 className="text-xl font-bold text-blue-900 mb-4">Diabetes Management Guidelines</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-pills text-blue-500 mt-1"></i>
             <span>Take medications as prescribed by your doctor</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-tint text-blue-500 mt-1"></i>
             <span>Monitor blood sugar levels regularly</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
-            <span>Follow a balanced diet with controlled carbs</span>
+            <i className="fas fa-utensils text-blue-500 mt-1"></i>
+            <span>Follow a balanced diet with controlled carbohydrates</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-running text-blue-500 mt-1"></i>
             <span>Engage in regular physical activity</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-user-md text-blue-500 mt-1"></i>
             <span>Regular health checkups and screenings</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-weight text-blue-500 mt-1"></i>
             <span>Maintain healthy weight and blood pressure</span>
           </div>
         </div>
@@ -287,7 +262,7 @@ const DiabetesCare = () => {
       {/* Emergency Warning */}
       <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-red-500 text-xl">⚠️</span>
+          <i className="fas fa-exclamation-triangle text-red-500 text-xl"></i>
           <span className="text-red-800 font-bold">Important Notice</span>
         </div>
         <p className="text-red-700 text-sm">

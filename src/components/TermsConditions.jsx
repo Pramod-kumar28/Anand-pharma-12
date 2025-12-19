@@ -199,7 +199,7 @@ const TermsConditions = () => {
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <span className="text-yellow-500">⚠️</span>
+                    <i className="fas fa-exclamation-triangle text-yellow-500"></i>
                   </div>
                   <div className="ml-3">
                     <p className="text-sm text-yellow-700">
@@ -244,7 +244,7 @@ const TermsConditions = () => {
               <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <span className="text-red-500">⚠️</span>
+                    <i className="fas fa-exclamation-triangle text-red-500"></i>
                   </div>
                   <div className="ml-3">
                     <p className="text-sm text-red-700">
@@ -307,9 +307,9 @@ const TermsConditions = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Contact Details</h4>
                     <p className="text-gray-600 text-sm">
-                      📞 Customer Support: +91 22 1234 5678<br />
-                      📧 Email: legal@medcarepharmacy.com<br />
-                      ⏰ Hours: Mon-Sat, 9 AM - 8 PM IST
+                      <i className="fas fa-phone mr-2"></i> Customer Support: +91 22 1234 5678<br />
+                      <i className="fas fa-envelope mr-2"></i> Email: legal@medcarepharmacy.com<br />
+                      <i className="fas fa-clock mr-2"></i> Hours: Mon-Sat, 9 AM - 8 PM IST
                     </p>
                   </div>
                 </div>
@@ -348,7 +348,7 @@ const TermsConditions = () => {
             href="#top"
             className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium"
           >
-            ↑ Back to Top
+            <i className="fas fa-arrow-up mr-1"></i> Back to Top
           </a>
         </div>
 

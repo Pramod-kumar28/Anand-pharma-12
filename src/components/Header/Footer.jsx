@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="bg-[#0D5E75] text-white py-6 px-4">
             <div className="max-w-7xl mx-auto">
                 {/* Top Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-5">
                     {/* Brand Section */}
                     <div className="md:col-span-2">
                         <div className="flex items-center gap-3 mb-4">
@@ -49,7 +49,7 @@ const Footer = () => {
                             {/* Brand Name */}
                             <div className="flex flex-col min-w-0">
                                 <span className="text-base font-bold text-white-800 whitespace-nowrap md:text-lg truncate">
-                                    <span className="text-blue-300">Anand</span> Pharmacy
+                                    <span className="text-blue-300">Anand</span> Pharma
                                 </span>
                                 {/* Tagline - Hidden on mobile */}
                                 <span className="md:block text-xs text-gray-200 whitespace-nowrap">
@@ -59,8 +59,10 @@ const Footer = () => {
                         </div>
                         
                         <p className="text-white/80 leading-relaxed mb-6 max-w-md">
-                            Fast and trusted medicine delivery at your doorstep. Order medicines, 
-                            wellness products, and healthcare essentials in minutes.
+                                At Anand Pharma, we're committed to making healthcare truly accessible delivering genuine medicines 
+                                to your doorstep in just 15 to 30 minutes. We believe timely access to medication is a right, not a privilege, 
+                                and we deliver trust, transparency, and care to every home, every time through our advanced healthcare 
+                                ecosystem.
                         </p>
                         
                         {/* Social Media Links */}
@@ -110,6 +112,7 @@ const Footer = () => {
                             title: "Information",
                             links: [
                                 { name: "About Us", url: "/about" },
+                                { name: "Contact Us", url: "/contact" },
                                 { name: "Terms & Conditions", url: "/terms" },
                                 { name: "Privacy Policy", url: "/privacy" }
                             ]
@@ -145,14 +148,28 @@ const Footer = () => {
                     </div>
                     
                     <div className="flex flex-wrap gap-4 justify-center">
-                        {["Contact", "Privacy", "Terms of Use", "Refund Policy", "Delivery Policy"].map((item) => (
-                            <a 
+                        {[
+                            {
+                                name: "Privacy Policy",
+                                path: "/privacy"
+                            },
+                            {
+                                name: "Terms & Conditions",
+                                path: "/terms"
+                            },
+                            {
+                                name: "Contact Us",
+                                path: "/contact"
+                            }
+                            
+                        ].map((item) => (
+                            <Link 
                                 key={item} 
-                                href="#" 
+                                to={item.path}
                                 className="text-white/70 hover:text-blue-300 transition text-sm whitespace-nowrap"
                             >
-                                {item}
-                            </a>
+                                {item.name}
+                            </Link>
                         ))}
                     </div>
                 </div>

@@ -82,7 +82,7 @@ const LiverCare = () => {
                                 (product.final_price > 2000 && product.medicine_type !== "Herbal Supplement");
     
     if (prescriptionRequired) {
-      alert("⚠️ This product requires a doctor's prescription. Please consult your hepatologist or healthcare provider.");
+      alert("This product requires a doctor's prescription. Please consult your hepatologist or healthcare provider.");
       return;
     }
 
@@ -121,7 +121,7 @@ const LiverCare = () => {
     successMsg.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg z-50 animate-slide-in';
     successMsg.innerHTML = `
       <div class="flex items-center gap-3">
-        <span class="text-xl">✓</span>
+        <i class="fas fa-check text-xl"></i>
         <div>
           <p class="font-semibold">Added to Cart!</p>
           <p class="text-sm opacity-90">${product.name}</p>
@@ -193,7 +193,7 @@ const LiverCare = () => {
       {/* Liver Health Alert Banner */}
       <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-green-500 text-xl">⚕️</span>
+          <i className="fas fa-user-md text-green-500 text-xl"></i>
           <span className="text-green-800 font-bold">Liver Health Information</span>
         </div>
         <p className="text-green-700 text-sm">
@@ -210,7 +210,10 @@ const LiverCare = () => {
 
       {/* Liver Function Tests */}
       <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <h3 className="font-semibold text-blue-900 mb-3">📊 Liver Function Test Ranges</h3>
+        <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+          <i className="fas fa-chart-line"></i>
+          Liver Function Test Ranges
+        </h3>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           {liverTests.map(test => (
             <div key={test.name} className="text-center">
@@ -287,8 +290,9 @@ const LiverCare = () => {
                 
                 {/* Prescription Required Badge */}
                 {prescriptionRequired ? (
-                  <span className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold">
-                    ⚕️ Prescription
+                  <span className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1">
+                    <i className="fas fa-user-md"></i>
+                    Prescription
                   </span>
                 ) : (
                   <span className="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded text-xs font-semibold">
@@ -343,7 +347,7 @@ const LiverCare = () => {
                 {/* Rating */}
                 {product.rating && (
                   <div className="flex items-center gap-1 mb-3">
-                    <span className="text-yellow-500">★</span>
+                    <i className="fas fa-star text-yellow-500"></i>
                     <span className="text-sm text-gray-700">{product.rating}</span>
                     <span className="text-xs text-gray-500">({product.stock || 100} in stock)</span>
                   </div>
@@ -374,49 +378,12 @@ const LiverCare = () => {
         </div>
       )}
 
-      {/* Liver Health Guidelines */}
-      <div className="mt-12 border-t pt-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Liver Health Guidelines</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white border border-green-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">🚫</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Avoid Alcohol</h3>
-            <p className="text-sm text-gray-600">Limit or avoid alcohol to prevent liver damage</p>
-          </div>
-          <div className="bg-white border border-blue-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">🥗</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Healthy Diet</h3>
-            <p className="text-sm text-gray-600">Eat fruits, vegetables, and whole grains</p>
-          </div>
-          <div className="bg-white border border-green-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">⚖️</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Weight Management</h3>
-            <p className="text-sm text-gray-600">Maintain healthy weight to prevent fatty liver</p>
-          </div>
-          <div className="bg-white border border-purple-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">💊</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Medication Caution</h3>
-            <p className="text-sm text-gray-600">Avoid unnecessary medications that stress liver</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Liver Conditions Information */}
-      <div className="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-yellow-900 mb-4">⚕️ Common Liver Conditions</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {liverConditions.map(condition => (
-            <div key={condition.name} className="bg-white rounded-lg p-4 shadow-sm">
-              <h4 className="font-semibold text-gray-900 mb-2">{condition.name}</h4>
-              <p className="text-sm text-gray-600">{condition.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Symptoms & Warning Signs */}
       <div className="mt-8 bg-red-50 border border-red-200 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-red-900 mb-4">⚠️ Liver Warning Signs</h3>
+        <h3 className="text-xl font-bold text-red-900 mb-4 flex items-center gap-2">
+          <i className="fas fa-exclamation-triangle"></i>
+          Liver Warning Signs
+        </h3>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white rounded-lg overflow-hidden">
             <thead className="bg-red-100">
@@ -455,7 +422,7 @@ const LiverCare = () => {
       {/* Important Notice */}
       <div className="mt-8 bg-blue-50 border border-blue-300 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <span className="text-blue-500 text-2xl">ℹ️</span>
+          <i className="fas fa-info-circle text-blue-500 text-2xl"></i>
           <div>
             <h4 className="font-bold text-blue-900 mb-2">Important Liver Care Notice</h4>
             <p className="text-blue-800 text-sm">

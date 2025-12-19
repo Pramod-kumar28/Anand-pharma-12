@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Header/Footer";
-
-// Import the new Header component
 import Header from "./Header/Header";
 
 // ArticleCard component (unchanged)
@@ -59,7 +57,7 @@ const categories = [
     { 
         id: 2, 
         name: "Heart Care", 
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKnxObqnyN8HnUIffYl808uGkEwa9fbh5UbA&s", 
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDLpyFiKIxsoRg8RuwikIgOWqXVT4tsiw70w&s", 
         color: "bg-red-50",
         route: "/home/cardiac-care"
     },
@@ -94,16 +92,16 @@ const categories = [
     { 
         id: 7, 
         name: "Liver Care", 
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXUxw0e8FBrXQMu4EpHlNgw4PQT60_JQK4sA&s", 
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpzmPtucz_sVSHFqZcSruWX87ecvQ2ZoR0xg&s", 
         color: "bg-purple-50",
         route: "/home/liver-care"
     },
     { 
         id: 8, 
-        name: "Pain Relief", 
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG30-R18oPHkLVtWgBeYlnTrU2sYWYh37TTw&s", 
+        name: "Covid Essentials", 
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrsZIz0kboRye5oFAVl-mzxy73wMCDgEprQ&s", 
         color: "bg-blue-50",
-        route: "/home/pain-relief"
+        route: "/home/covid-essentials"
     }
 ];
 
@@ -112,7 +110,7 @@ const popularItems = [
     { id: 2, name: "M Torr 800 Capsule 10", mrp: "₹324.79", price: "₹259.83", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwb8u_E-sV8Vno520RhiBrQT17v7FF7ImIpg&s", badge: "20% OFF", prescription: true },
     { id: 3, name: "A To Z Woman Capsule 15", mrp: "₹383.52", price: "₹306.82", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4mnv1fq3Ckz9uR83cAq4DoCTGy2AdgJ9mpw&s", badge: "20% OFF", prescription: false },
     { id: 4, name: "Naturolax Powder 300gm", mrp: "₹486", price: "₹403.87", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf5bOvFV7BW4ffSZ3-Bnqw_mKT24STHGq43g&s", badge: "17% OFF", prescription: true },
-    { id: 5, name: "Reffron Tablet 15", mrp: "₹347.03", price: "₹277.62", img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSExMWFhUVGRIXFhgXGBoWFhoYFRYeFhUWFRcYHSggGRolGxcZIT0hJSkrLi4uFyAzODMtNyktLysBCgoKDQ0OFxAQFy0dHR0rKysvKy8uL...", badge: "20% OFF", prescription: true }
+    { id: 5, name: "Reffron Tablet 15", mrp: "₹347.03", price: "₹277.62", img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSExMWFhUVGRIXFhgXGBoWFhoYFRYeFhUWFRcYHSggGRolGxcZIT0hJSkrLi4uFyAzODMtNygtLysBCgoKDQ0OFxAQFy0dHR0rKysvKy8uL...", badge: "20% OFF", prescription: true }
 ];
 
 // Main LandingPage component
@@ -129,7 +127,6 @@ export default function LandingPage() {
     const [uploadedPrescription, setUploadedPrescription] = useState(null);
     const [showScan, setShowScan] = useState(false);
     
-
     // Updated user state for new Header
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
@@ -296,7 +293,7 @@ export default function LandingPage() {
                 onLogout={handleLogout}
             />
 
-            {/* ====== PAGE BODY (UNCHANGED) ====== */}
+            {/* ====== PAGE BODY (UPDATED) ====== */}
             <main className="pt-16 sm:pt-20 overflow-x-hidden">
                 <div className="w-full px-2 sm:px-4 md:px-6 lg:px-8 overflow-x-hidden">
 
@@ -341,7 +338,12 @@ export default function LandingPage() {
                                 </div>
 
                                 <div className="flex flex-wrap gap-2 sm:gap-4 mt-2 sm:mt-4">
-                                    {[ "🛡️ 100% Genuine", "💊 Expert Advice"].map((feature, index) => (
+                                    {[
+                                        { icon: "fas fa-shield-alt", text: "100% Genuine" },
+                                        { icon: "fas fa-capsules", text: "Expert Advice" },
+                                        { icon: "fas fa-truck", text: "Fast Delivery" },
+                                        { icon: "fas fa-hand-holding-medical", text: "Pharma Care" }
+                                    ].map((feature, index) => (
                                         <motion.div
                                             key={index}
                                             className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm"
@@ -349,7 +351,8 @@ export default function LandingPage() {
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: index * 0.2 + 0.5 }}
                                         >
-                                            {feature}
+                                            <i className={feature.icon}></i>
+                                            <span>{feature.text}</span>
                                         </motion.div>
                                     ))}
                                 </div>
@@ -369,6 +372,63 @@ export default function LandingPage() {
                                     />
                                 </div>
                             </motion.div>
+                        </div>
+                    </section>
+
+                    {/* ====== ANAND PHARMA VISION SECTION ====== */}
+                    <section className="mb-12 bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-gray-200">
+                        <div className="text-center mb-8">
+                            <div className="flex items-center justify-center gap-3 mb-4">
+                                <h2 className="text-3xl font-bold text-gray-800">Anand Pharma</h2>
+                            </div>
+                            <p className="text-gray-600 max-w-4xl mx-auto text-lg">
+                                At Anand Pharma, our vision is to make healthcare truly accessible where
+                                genuine medicines reach every doorstep in just 15 to 30 minutes. We believe that
+                                when it comes to health, every moment matters, and timely access to medication
+                                should never be a privilege, but a right.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            {/* Left Content */}
+                            <div className="space-y-6">
+                                <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
+                                    <div className="flex items-start gap-4">
+                                        <div className="flex-shrink-0 mt-1">
+                                            <i className="fas fa-check-circle text-blue-600 text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-bold text-gray-800 mb-3">Transparent Choices</h4>
+                                            <p className="text-gray-600 leading-relaxed">
+                                                Our innovative platform empowers users with real choices, offering equivalent
+                                                medicines with the same formula across multiple trusted brands, complete with
+                                                transparent pricing. This ensures that every customer can choose confidently
+                                                balancing quality, affordability, and trust.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Right Content */}
+                            <div className="space-y-6">
+                                <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 text-white">
+                                    <div className="flex items-start gap-4">
+                                        <div className="flex-shrink-0 mt-1">
+                                            <i className="fas fa-heart text-white text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xl font-bold mb-3">Our Commitment</h4>
+                                            <p className="leading-relaxed">
+                                                At Anand Pharma, we don't just deliver medicines we deliver trust,
+                                                transparency, and timely care to every home, every time.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
                         </div>
                     </section>
 
@@ -416,7 +476,7 @@ export default function LandingPage() {
                                             initial={{ scale: 0 }}
                                             animate={{ scale: 1 }}
                                         >
-                                            ✓ Selected
+                                            <i className="fas fa-check mr-1"></i>Selected
                                         </motion.div>
                                     )}
                                 </motion.button>
@@ -439,7 +499,7 @@ export default function LandingPage() {
                                         className="bg-white text-green-600 px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-gray-100 transition flex items-center gap-2 text-sm sm:text-base"
                                         onClick={handleUploadPrescription}
                                     >
-                                        <span>📄</span> Upload Now
+                                        <i className="fas fa-file-medical"></i> Upload Now
                                     </button>
                                     <button className="border border-white text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-white/10 transition text-sm sm:text-base">
                                         Learn More
@@ -452,7 +512,7 @@ export default function LandingPage() {
                                         animate={{ opacity: 1, scale: 1 }}
                                     >
                                         <p className="text-white text-xs sm:text-sm">
-                                            ✅ Prescription uploaded: {uploadedPrescription.name}
+                                            <i className="fas fa-check-circle mr-2"></i>Prescription uploaded: {uploadedPrescription.name}
                                         </p>
                                         <p className="text-green-100 text-xs">Uploaded on {uploadedPrescription.date}</p>
                                     </motion.div>
@@ -466,7 +526,9 @@ export default function LandingPage() {
                             >
                                 <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl w-full max-w-xs">
                                     <div className="border-2 border-dashed border-white/30 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 text-center">
-                                        <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">📄</div>
+                                        <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">
+                                            <i className="fas fa-file-prescription"></i>
+                                        </div>
                                         <p className="text-white/80 text-xs sm:text-sm mb-3 sm:mb-4">Upload prescription image</p>
                                         <input 
                                             type="file" 
@@ -507,7 +569,7 @@ export default function LandingPage() {
                                 onClick={() => scrollPopularItems('left')}
                                 className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white shadow-lg rounded-full p-2 sm:p-3 hover:bg-gray-50 transition"
                             >
-                                ←
+                                <i className="fas fa-chevron-left"></i>
                             </button>
 
                             <div 
@@ -528,7 +590,10 @@ export default function LandingPage() {
                                             onClick={() => toggleWishlist(item)}
                                             className="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 p-1 sm:p-2 rounded-full bg-white/80 backdrop-blur-sm hover:bg-red-50 transition"
                                         >
-                                            {wishlist.find(wishItem => wishItem.id === item.id) ? "❤️" : "🤍"}
+                                            {wishlist.find(wishItem => wishItem.id === item.id) ? 
+                                                <i className="fas fa-heart text-red-500"></i> : 
+                                                <i className="far fa-heart text-gray-400"></i>
+                                            }
                                         </button>
 
                                         <div className="relative mb-4 sm:mb-5">
@@ -537,7 +602,7 @@ export default function LandingPage() {
                                             </div>
                                             {item.prescription && (
                                                 <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
-                                                    📋 Prescription
+                                                    <i className="fas fa-file-prescription mr-1"></i>Prescription
                                                 </div>
                                             )}
                                             <img 
@@ -560,7 +625,7 @@ export default function LandingPage() {
                                             onClick={() => addToCart(item)}
                                             className="w-full bg-blue-600 text-white border border-blue-600 rounded-lg sm:rounded-xl py-2 sm:py-3 text-xs sm:text-sm font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2"
                                         >
-                                            <span>🛒</span> Add to Cart
+                                            <i className="fas fa-shopping-cart"></i> Add to Cart
                                         </button>
                                     </motion.div>
                                 ))}
@@ -570,7 +635,7 @@ export default function LandingPage() {
                                 onClick={() => scrollPopularItems('right')}
                                 className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white shadow-lg rounded-full p-2 sm:p-3 hover:bg-gray-50 transition"
                             >
-                                →
+                                <i className="fas fa-chevron-right"></i>
                             </button>
                         </div>
                     </section>
@@ -583,16 +648,48 @@ export default function LandingPage() {
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                             {[
-                                { icon: "🛡️", title: "100% Genuine", desc: "Licensed & verified pharmaceutical products" },
-                                { icon: "🚚", title: "Fast Delivery", desc: "2-hour delivery in most urban areas" },
-                                { icon: "💳", title: "Secure Payment", desc: "SSL encrypted transactions for safety" },
-                                { icon: "🏥", title: "Expert Support", desc: "24/7 pharmacist consultation available" },
-                                { icon: "💰", title: "Best Prices", desc: "Competitive pricing with regular discounts" },
-                                { icon: "📱", title: "Easy Ordering", desc: "Simple app and website interface" },
-                                { icon: "🔒", title: "Data Privacy", desc: "Your health data is completely secure" },
-                                { icon: "⭐", title: "Trusted", desc: "Serving customers for over 15 years" }
+                                {
+                                    icon: "fas fa-clock",
+                                    title: "15 - 30 Minute Delivery",
+                                    desc: "Genuine medicines at your doorstep in just 15 to 30 minutes"
+                                },
+                                {
+                                    icon: "fas fa-balance-scale",
+                                    title: "Transparent Choices",
+                                    desc: "Equivalent medicines with same formula across trusted brands"
+                                },
+                                {
+                                    icon: "fas fa-laptop-medical",
+                                    title: "Advanced Technology",
+                                    desc: "Combining tech, pharmacy expertise & intelligent logistics"
+                                },
+                                {
+                                    icon: "fas fa-heart",
+                                    title: "Trust & Care",
+                                    desc: "We deliver trust, transparency and timely care to every home"
+                                },
+                                {
+                                    icon: "fas fa-hand-holding-medical",
+                                    title: "Accessible Healthcare",
+                                    desc: "Timely access to medication is a right, not a privilege"
+                                },
+                                {
+                                    icon: "fas fa-tags",
+                                    title: "Fair Pricing",
+                                    desc: "Complete transparent pricing across all medicine brands"
+                                },
+                                {
+                                    icon: "fas fa-shield-alt",
+                                    title: "Genuine Products",
+                                    desc: "100% licensed and verified pharmaceutical products"
+                                },
+                                {
+                                    icon: "fas fa-home",
+                                    title: "Doorstep Service",
+                                    desc: "Building a faster, safer healthcare ecosystem for all"
+                                }
                             ].map((item, idx) => (
-                                <motion.div 
+                                <motion.div
                                     key={idx}
                                     className="text-center p-4 sm:p-6 bg-gray-50 rounded-lg sm:rounded-xl hover:bg-blue-50 transition-all duration-300 hover:shadow-md"
                                     whileHover={{ scale: 1.05 }}
@@ -600,7 +697,9 @@ export default function LandingPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ delay: idx * 0.1 }}
                                 >
-                                    <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{item.icon}</div>
+                                    <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">
+                                        <i className={item.icon + " text-blue-600"}></i>
+                                    </div>
                                     <h3 className="font-bold text-gray-800 mb-2 sm:mb-3 text-sm sm:text-lg">{item.title}</h3>
                                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                                 </motion.div>
@@ -682,7 +781,10 @@ export default function LandingPage() {
                                     <div className="flex justify-between items-center">
                                         <h3 className="text-sm sm:text-lg font-semibold text-gray-800 pr-4">{item.q}</h3>
                                         <span className="text-lg sm:text-xl text-gray-600 font-medium flex-shrink-0">
-                                            {openFaq === index ? "−" : "+"}
+                                            {openFaq === index ? 
+                                                <i className="fas fa-minus"></i> : 
+                                                <i className="fas fa-plus"></i>
+                                            }
                                         </span>
                                     </div>
 
@@ -712,14 +814,14 @@ export default function LandingPage() {
                                 <p className="mb-4 sm:mb-6 text-blue-100 text-sm sm:text-base md:text-lg">Order medicines faster with our mobile app. Get exclusive app-only discounts and health tracking features!</p>
                                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                                     <button className="bg-white text-blue-600 px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-gray-100 transition flex items-center justify-center gap-2 text-xs sm:text-sm">
-                                        <span className="text-xl sm:text-2xl">📱</span>
+                                        <i className="fab fa-google-play text-xl sm:text-2xl"></i>
                                         <div className="text-left">
                                             <div className="text-xs">GET IT ON</div>
                                             <div className="text-sm sm:text-lg font-bold">Google Play</div>
                                         </div>
                                     </button>
                                     <button className="bg-white text-blue-600 px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-gray-100 transition flex items-center justify-center gap-2 text-xs sm:text-sm">
-                                        <span className="text-xl sm:text-2xl">📱</span>
+                                        <i className="fab fa-apple text-xl sm:text-2xl"></i>
                                         <div className="text-left">
                                             <div className="text-xs">Download on the</div>
                                             <div className="text-sm sm:text-lg font-bold">App Store</div>
@@ -734,11 +836,7 @@ export default function LandingPage() {
                                 transition={{ duration: 0.6 }}
                             >
                                 <div className="bg-white/10 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl backdrop-blur-sm">
-                                    <img 
-                                        src="https://cdn-icons-png.flaticon.com/512/4711/4711986.png" 
-                                        alt="App Preview" 
-                                        className="w-48 h-48 sm:w-64 sm:h-64 object-contain" 
-                                    />
+                                    <i className="fas fa-mobile-alt text-white text-8xl sm:text-9xl"></i>
                                 </div>
                             </motion.div>
                         </div>
@@ -760,16 +858,16 @@ export default function LandingPage() {
                                 onClick={() => setShowCart(false)}
                                 className="p-2 hover:bg-gray-100 rounded-full transition"
                             >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
+                                <i className="fas fa-times"></i>
                             </button>
                         </div>
 
                         <div className="flex-1 overflow-y-auto p-4 sm:p-6">
                             {(!cart || cart.length === 0) ? (
                                 <div className="text-center py-8 sm:py-12">
-                                    <div className="text-6xl mb-4">🛒</div>
+                                    <div className="text-6xl mb-4">
+                                        <i className="fas fa-shopping-cart text-gray-300"></i>
+                                    </div>
                                     <h4 className="text-gray-600 mb-2 text-sm sm:text-base">Your cart is empty</h4>
                                     <p className="text-gray-500 text-xs sm:text-sm">Add some medicines to get started</p>
                                 </div>
@@ -790,14 +888,14 @@ export default function LandingPage() {
                                                         onClick={() => updateCartQuantity(item.id, (item.quantity || 1) - 1)}
                                                         className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition text-xs"
                                                     >
-                                                        -
+                                                        <i className="fas fa-minus text-xs"></i>
                                                     </button>
                                                     <span className="w-6 sm:w-8 text-center text-xs sm:text-sm">{item.quantity || 1}</span>
                                                     <button 
                                                         onClick={() => updateCartQuantity(item.id, (item.quantity || 1) + 1)}
                                                         className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition text-xs"
                                                     >
-                                                        +
+                                                        <i className="fas fa-plus text-xs"></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -805,9 +903,7 @@ export default function LandingPage() {
                                                 onClick={() => removeFromCart(item.id)}
                                                 className="p-1 sm:p-2 text-red-500 hover:bg-red-50 rounded-full transition"
                                             >
-                                                <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
+                                                <i className="fas fa-trash-alt text-sm"></i>
                                             </button>
                                         </div>
                                     ))}
@@ -850,12 +946,12 @@ export default function LandingPage() {
                                 onClick={() => setShowScan(false)}
                                 className="p-2 hover:bg-gray-100 rounded-full transition"
                             >
-                                ✕
+                                <i className="fas fa-times"></i>
                             </button>
                         </div>
                         <div className="text-center">
                             <div className="w-48 h-48 sm:w-64 sm:h-64 mx-auto bg-gray-200 rounded-lg flex items-center justify-center mb-4">
-                                <span className="text-4xl">📷</span>
+                                <i className="fas fa-camera text-4xl text-gray-400"></i>
                             </div>
                             <p className="text-gray-600 mb-4 text-sm sm:text-base">Point your camera at the medicine barcode to scan</p>
                             <div className="flex gap-3">
@@ -877,4 +973,4 @@ export default function LandingPage() {
             <Footer/>
         </div>
     );
-}
+}   

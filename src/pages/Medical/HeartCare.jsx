@@ -79,9 +79,9 @@ const HeartCare = () => {
       </div>
 
       {/* Heart Health Tips */}
-      <div className="mb-6 bg-blue-50 border border-nlue-200 rounded-lg p-4">
+      <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-blue-500 text-xl">❤️</span>
+          <i className="fas fa-heart text-blue-500 text-xl"></i>
           <span className="text-blue-800 font-bold">Heart Health Tips</span>
         </div>
         <p className="text-blue-700 text-sm">
@@ -92,7 +92,7 @@ const HeartCare = () => {
       {/* Important Notice */}
       <div className="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
         <div className="flex items-center gap-2">
-          <span className="text-yellow-500 text-xl">⚠️</span>
+          <i className="fas fa-exclamation-triangle text-yellow-500 text-xl"></i>
           <span className="text-yellow-800 font-bold">Important Medical Notice</span>
         </div>
         <p className="text-yellow-700 text-sm mt-1">
@@ -177,8 +177,9 @@ const HeartCare = () => {
               )}
 
               {/* Rating Badge */}
-              <span className="absolute bottom-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded text-sm font-semibold">
-                ⭐ 4.5+
+              <span className="absolute bottom-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded text-sm font-semibold flex items-center gap-1">
+                <i className="fas fa-star"></i>
+                4.5+
               </span>
             </div>
 
@@ -232,59 +233,32 @@ const HeartCare = () => {
         </div>
       )}
 
-      {/* Heart Care Benefits */}
-      <div className="mt-12 border-t pt-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Benefits of Heart Care Medications</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">❤️</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Heart Protection</h3>
-            <p className="text-sm text-gray-600">Strengthen and protect your cardiovascular system</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">🩸</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Blood Pressure</h3>
-            <p className="text-sm text-gray-600">Maintain healthy blood pressure levels</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">🔄</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Cholesterol Control</h3>
-            <p className="text-sm text-gray-600">Manage cholesterol for better heart health</p>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">💊</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Blood Thinning</h3>
-            <p className="text-sm text-gray-600">Prevent blood clots and improve circulation</p>
-          </div>
-        </div>
-      </div>
-
       {/* Medical Guidelines */}
       <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
         <h3 className="text-xl font-bold text-blue-900 mb-4">Heart Care Guidelines</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-pills text-blue-500 mt-1"></i>
             <span>Take medications exactly as prescribed by your cardiologist</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-ban text-blue-500 mt-1"></i>
             <span>Never stop taking heart medications abruptly</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-chart-line text-blue-500 mt-1"></i>
             <span>Regular monitoring of blood pressure and cholesterol</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-heartbeat text-blue-500 mt-1"></i>
             <span>Maintain a heart-healthy diet and exercise routine</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-user-md text-blue-500 mt-1"></i>
             <span>Regular follow-ups with your healthcare provider</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-blue-500 mt-1">•</span>
+            <i className="fas fa-exclamation-circle text-blue-500 mt-1"></i>
             <span>Report any side effects or concerns immediately</span>
           </div>
         </div>
@@ -293,7 +267,7 @@ const HeartCare = () => {
       {/* Emergency Information */}
       <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-red-500 text-xl">🚨</span>
+          <i className="fas fa-exclamation-triangle text-red-500 text-xl"></i>
           <span className="text-red-800 font-bold">Emergency Heart Symptoms</span>
         </div>
         <p className="text-red-700 text-sm">

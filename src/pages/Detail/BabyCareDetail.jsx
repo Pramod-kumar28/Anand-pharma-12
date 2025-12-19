@@ -119,7 +119,7 @@ const BabyCareDetail = () => {
       {showCartSuccess && (
         <div className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-slide-in">
           <div className="flex items-center gap-3">
-            <span className="text-xl">✓</span>
+            <i className="fas fa-check text-xl"></i>
             <div>
               <p className="font-semibold">Added to Cart!</p>
               <p className="text-sm opacity-90">{quantity} × {product.name}</p>
@@ -302,14 +302,14 @@ const BabyCareDetail = () => {
                 onClick={handleAddToCart}
                 className="flex-1 bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors flex items-center justify-center gap-2"
               >
-                <span>🛒</span>
+                <i className="fas fa-shopping-cart"></i>
                 Add to Cart
               </button>
               <button
                 onClick={handleBuyNow}
                 className="flex-1 bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
               >
-                <span>⚡</span>
+                <i className="fas fa-bolt"></i>
                 Buy Now
               </button>
             </div>
@@ -372,27 +372,27 @@ const BabyCareDetail = () => {
         <h3 className="text-xl font-bold text-green-900 mb-4">Safety Standards & Certifications</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div className="flex items-center gap-2">
-            <span className="text-green-500">✅</span>
+            <i className="fas fa-check text-green-500"></i>
             <span>Dermatologically Tested</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-green-500">✅</span>
+            <i className="fas fa-check text-green-500"></i>
             <span>Hypoallergenic Formula</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-green-500">✅</span>
+            <i className="fas fa-check text-green-500"></i>
             <span>Paraben & Sulfate Free</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-green-500">✅</span>
+            <i className="fas fa-check text-green-500"></i>
             <span>Pediatrician Recommended</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-green-500">✅</span>
+            <i className="fas fa-check text-green-500"></i>
             <span>pH Balanced</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-green-500">✅</span>
+            <i className="fas fa-check text-green-500"></i>
             <span>Made with Natural Ingredients</span>
           </div>
         </div>

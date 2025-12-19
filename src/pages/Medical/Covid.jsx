@@ -64,7 +64,7 @@ const Covid = () => {
                                 product.priceNumeric > 10000;
     
     if (prescriptionRequired) {
-      alert("⚠️ This product requires a doctor's prescription. Please consult your healthcare provider.");
+      alert("This product requires a doctor's prescription. Please consult your healthcare provider.");
       return;
     }
 
@@ -100,7 +100,7 @@ const Covid = () => {
     successMsg.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg z-50 animate-slide-in';
     successMsg.innerHTML = `
       <div class="flex items-center gap-3">
-        <span class="text-xl">✓</span>
+        <i class="fas fa-check text-xl"></i>
         <div>
           <p class="font-semibold">Added to Cart!</p>
           <p class="text-sm opacity-90">${product.name}</p>
@@ -170,7 +170,7 @@ const Covid = () => {
       {/* COVID Alert Banner */}
       <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-green-500 text-xl">⚠️</span>
+          <i className="fas fa-exclamation-triangle text-green-500 text-xl"></i>
           <span className="text-green-800 font-bold">Important COVID-19 Information</span>
         </div>
         <p className="text-green-700 text-sm">
@@ -187,7 +187,10 @@ const Covid = () => {
 
       {/* Emergency Contacts */}
       <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <h3 className="font-semibold text-blue-900 mb-3">📞 Emergency Contacts</h3>
+        <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+          <i className="fas fa-phone"></i>
+          Emergency Contacts
+        </h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {emergencyContacts.map(contact => (
             <div key={contact.name} className="text-center">
@@ -258,8 +261,9 @@ const Covid = () => {
                 
                 {/* Prescription Required Badge */}
                 {prescriptionRequired ? (
-                  <span className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold">
-                    ⚕️ Prescription
+                  <span className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold flex items-center gap-1">
+                    <i className="fas fa-user-md"></i>
+                    Prescription
                   </span>
                 ) : (
                   <span className="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded text-xs font-semibold">
@@ -305,13 +309,22 @@ const Covid = () => {
                 {/* Safety Icons */}
                 <div className="flex flex-wrap gap-2 mb-3">
                   {product.category === "Face Mask" && (
-                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">😷 Protection</span>
+                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded flex items-center gap-1">
+                      <i className="fas fa-head-side-mask"></i>
+                      Protection
+                    </span>
                   )}
                   {product.category === "Sanitizer" && (
-                    <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">🧴 Hygiene</span>
+                    <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded flex items-center gap-1">
+                      <i className="fas fa-pump-soap"></i>
+                      Hygiene
+                    </span>
                   )}
                   {product.category === "Thermometer" && (
-                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">🌡️ Monitoring</span>
+                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded flex items-center gap-1">
+                      <i className="fas fa-thermometer-half"></i>
+                      Monitoring
+                    </span>
                   )}
                   {product.name.includes("N95") && (
                     <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">NIOSH Approved</span>
@@ -343,36 +356,12 @@ const Covid = () => {
         </div>
       )}
 
-      {/* COVID Prevention Guidelines */}
-      <div className="mt-12 border-t pt-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">COVID-19 Prevention Guidelines</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white border border-green-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">😷</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Wear Mask</h3>
-            <p className="text-sm text-gray-600">Always wear mask properly covering nose and mouth in public</p>
-          </div>
-          <div className="bg-white border border-blue-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">🧼</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Hand Hygiene</h3>
-            <p className="text-sm text-gray-600">Wash hands frequently with soap or use alcohol-based sanitizer</p>
-          </div>
-          <div className="bg-white border border-green-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">↔️</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Social Distance</h3>
-            <p className="text-sm text-gray-600">Maintain at least 6 feet distance from others</p>
-          </div>
-          <div className="bg-white border border-purple-200 rounded-lg p-4 text-center">
-            <div className="text-3xl mb-2">💉</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Get Vaccinated</h3>
-            <p className="text-sm text-gray-600">Get vaccinated and follow booster dose schedule</p>
-          </div>
-        </div>
-      </div>
-
       {/* Symptoms & Action Table */}
       <div className="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-yellow-900 mb-4">🚨 COVID-19 Symptoms & Actions</h3>
+        <h3 className="text-xl font-bold text-yellow-900 mb-4 flex items-center gap-2">
+          <i className="fas fa-exclamation-triangle"></i>
+          COVID-19 Symptoms & Actions
+        </h3>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white rounded-lg overflow-hidden">
             <thead className="bg-yellow-100">
@@ -411,7 +400,7 @@ const Covid = () => {
       {/* Important Notice */}
       <div className="mt-8 bg-blue-50 border border-blue-300 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <span className="text-blue-500 text-2xl">ℹ️</span>
+          <i className="fas fa-info-circle text-blue-500 text-2xl"></i>
           <div>
             <h4 className="font-bold text-blue-900 mb-2">Important Notice</h4>
             <p className="text-blue-800 text-sm">

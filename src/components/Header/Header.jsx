@@ -201,7 +201,7 @@ const Header = ({
                                 </div>
                                 <div className="xs:block">
                                     <h1 className="text-base md:text-xl font-bold text-gray-800 leading-tight">
-                                        <span className="text-blue-600">Anand</span> Pharmacy
+                                        <span className="text-blue-600">Anand</span> Pharma
                                     </h1>
                                     <p className="hidden md:block text-xs text-gray-500">Trusted Healthcare</p>
                                 </div>

@@ -20,10 +20,10 @@ const PrivacyPolicy = () => {
           </p>
           <div className="mt-4">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-              🔒 HIPAA Compliant
+              <i className="fas fa-user-shield mr-1"></i> HIPAA Compliant
             </span>
             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 ml-2">
-              🛡️ GDPR Compliant
+              <i className="fas fa-shield-alt mr-1"></i> GDPR Compliant
             </span>
           </div>
         </div>
@@ -33,21 +33,21 @@ const PrivacyPolicy = () => {
           <h2 className="text-xl font-bold text-gray-900 mb-3">At a Glance</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-white p-4 rounded-lg">
-              <div className="text-blue-600 text-lg mb-2">📋</div>
+              <div className="text-blue-600 text-lg mb-2"><i className="fas fa-clipboard-list"></i></div>
               <h3 className="font-semibold text-gray-900">What We Collect</h3>
               <p className="text-gray-600 text-sm mt-1">
                 Contact info, medical data, purchase history, and device information
               </p>
             </div>
             <div className="bg-white p-4 rounded-lg">
-              <div className="text-green-600 text-lg mb-2">🔐</div>
+              <div className="text-green-600 text-lg mb-2"><i className="fas fa-lock"></i></div>
               <h3 className="font-semibold text-gray-900">How We Protect</h3>
               <p className="text-gray-600 text-sm mt-1">
                 SSL encryption, secure servers, and strict access controls
               </p>
             </div>
             <div className="bg-white p-4 rounded-lg">
-              <div className="text-purple-600 text-lg mb-2">👁️</div>
+              <div className="text-purple-600 text-lg mb-2"><i className="fas fa-eye"></i></div>
               <h3 className="font-semibold text-gray-900">Your Rights</h3>
               <p className="text-gray-600 text-sm mt-1">
                 Access, correct, delete your data or opt-out anytime
@@ -99,7 +99,7 @@ const PrivacyPolicy = () => {
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <span className="text-yellow-500">⚠️</span>
+                    <i className="fas fa-exclamation-triangle text-yellow-500"></i>
                   </div>
                   <div className="ml-3">
                     <p className="text-sm text-yellow-700">
@@ -155,7 +155,7 @@ const PrivacyPolicy = () => {
               <div className="bg-red-50 border-l-4 border-red-400 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <span className="text-red-500">🔒</span>
+                    <i className="fas fa-lock text-red-500"></i>
                   </div>
                   <div className="ml-3">
                     <p className="text-sm text-red-700">
@@ -271,17 +271,17 @@ const PrivacyPolicy = () => {
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-blue-50 p-4 rounded-lg text-center">
-                  <div className="text-blue-600 text-2xl mb-2">🔐</div>
+                  <div className="text-blue-600 text-2xl mb-2"><i className="fas fa-lock"></i></div>
                   <h3 className="font-semibold text-gray-900">Encryption</h3>
                   <p className="text-gray-600 text-sm mt-1">256-bit SSL encryption for all data transfers</p>
                 </div>
                 <div className="bg-green-50 p-4 rounded-lg text-center">
-                  <div className="text-green-600 text-2xl mb-2">🛡️</div>
+                  <div className="text-green-600 text-2xl mb-2"><i className="fas fa-shield-alt"></i></div>
                   <h3 className="font-semibold text-gray-900">Access Control</h3>
                   <p className="text-gray-600 text-sm mt-1">Role-based access and authentication</p>
                 </div>
                 <div className="bg-purple-50 p-4 rounded-lg text-center">
-                  <div className="text-purple-600 text-2xl mb-2">📊</div>
+                  <div className="text-purple-600 text-2xl mb-2"><i className="fas fa-chart-bar"></i></div>
                   <h3 className="font-semibold text-gray-900">Regular Audits</h3>
                   <p className="text-gray-600 text-sm mt-1">Security audits and penetration testing</p>
                 </div>
@@ -301,16 +301,16 @@ const PrivacyPolicy = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  { icon: "👁️", title: "Right to Access", desc: "Request copies of your personal data" },
-                  { icon: "✏️", title: "Right to Rectification", desc: "Correct inaccurate or incomplete data" },
-                  { icon: "🗑️", title: "Right to Erasure", desc: "Request deletion of your personal data" },
-                  { icon: "⏸️", title: "Right to Restrict", desc: "Restrict processing of your data" },
-                  { icon: "📥", title: "Data Portability", desc: "Receive your data in a portable format" },
-                  { icon: "🚫", title: "Right to Object", desc: "Object to processing of your data" },
+                  { icon: "fas fa-eye", title: "Right to Access", desc: "Request copies of your personal data" },
+                  { icon: "fas fa-edit", title: "Right to Rectification", desc: "Correct inaccurate or incomplete data" },
+                  { icon: "fas fa-trash-alt", title: "Right to Erasure", desc: "Request deletion of your personal data" },
+                  { icon: "fas fa-pause-circle", title: "Right to Restrict", desc: "Restrict processing of your data" },
+                  { icon: "fas fa-download", title: "Data Portability", desc: "Receive your data in a portable format" },
+                  { icon: "fas fa-ban", title: "Right to Object", desc: "Object to processing of your data" },
                 ].map((right, idx) => (
                   <div key={idx} className="border border-gray-200 rounded-lg p-4">
                     <div className="flex items-start">
-                      <span className="text-xl mr-3">{right.icon}</span>
+                      <i className={`${right.icon} text-xl mr-3 text-gray-700`}></i>
                       <div>
                         <h4 className="font-semibold text-gray-900">{right.title}</h4>
                         <p className="text-gray-600 text-sm mt-1">{right.desc}</p>
@@ -386,7 +386,7 @@ const PrivacyPolicy = () => {
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <span className="text-yellow-500">👶</span>
+                    <i className="fas fa-baby text-yellow-500"></i>
                   </div>
                   <div className="ml-3">
                     <p className="text-sm text-yellow-700">
@@ -429,15 +429,15 @@ const PrivacyPolicy = () => {
                   <h3 className="font-semibold text-gray-900 mb-3">Data Protection Officer</h3>
                   <div className="space-y-2 text-gray-600">
                     <p className="flex items-center">
-                      <span className="mr-2">📧</span>
+                      <i className="fas fa-envelope mr-2"></i>
                       privacy@medcarepharmacy.com
                     </p>
                     <p className="flex items-center">
-                      <span className="mr-2">📞</span>
+                      <i className="fas fa-phone mr-2"></i>
                       +91 22 1234 5678 (Ext. 9)
                     </p>
                     <p className="flex items-center">
-                      <span className="mr-2">🏢</span>
+                      <i className="fas fa-building mr-2"></i>
                       Data Protection Office, MedCare Pharmacy
                     </p>
                   </div>
@@ -492,7 +492,7 @@ const PrivacyPolicy = () => {
             href="#top"
             className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium"
           >
-            ↑ Back to Top
+            <i className="fas fa-arrow-up mr-1"></i> Back to Top
           </a>
         </div>
       </div>

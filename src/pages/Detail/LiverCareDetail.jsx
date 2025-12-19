@@ -160,12 +160,16 @@ const LiverCareDetail = () => {
       <nav className="flex mb-6" aria-label="Breadcrumb">
         <ol className="flex items-center space-x-2 text-sm text-gray-600">
           <li>
-            <button onClick={() => navigate("/home/liver-care")} className="hover:text-green-600">
+            <button onClick={() => navigate("/home/liver-care")} className="hover:text-green-600 flex items-center gap-1">
+              <i className="fas fa-arrow-left text-xs"></i>
               Liver Care
             </button>
           </li>
-          <li>/</li>
-          <li className="text-gray-900 font-medium">{product.name}</li>
+          <li><i className="fas fa-chevron-right text-xs"></i></li>
+          <li className="text-gray-900 font-medium flex items-center gap-1">
+            <i className="fas fa-pills text-xs"></i>
+            {product.name}
+          </li>
         </ol>
       </nav>
 
@@ -173,7 +177,7 @@ const LiverCareDetail = () => {
       {showCartSuccess && (
         <div className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-slide-in">
           <div className="flex items-center gap-3">
-            <span className="text-xl">✓</span>
+            <i className="fas fa-check-circle text-xl"></i>
             <div>
               <p className="font-semibold">Added to Cart!</p>
               <p className="text-sm opacity-90">{quantity} × {product.name}</p>
@@ -183,8 +187,9 @@ const LiverCareDetail = () => {
             </div>
             <button 
               onClick={handleViewCart}
-              className="ml-4 bg-white text-green-600 px-3 py-1 rounded text-sm font-semibold hover:bg-gray-100"
+              className="ml-4 bg-white text-green-600 px-3 py-1 rounded text-sm font-semibold hover:bg-gray-100 flex items-center gap-1"
             >
+              <i className="fas fa-shopping-cart"></i>
               View Cart
             </button>
           </div>
@@ -195,7 +200,7 @@ const LiverCareDetail = () => {
         {/* Product Image */}
         <div>
           <div className="bg-white rounded-lg border p-4 mb-4">
-            <div className="w-full h-80 bg-gray-200 rounded-lg flex items-center justify-center">
+            <div className="w-full h-80 bg-gray-100 rounded-lg flex items-center justify-center">
               <img
                 src={product.images || "/assets/placeholder.jpg"}
                 alt={product.name}
@@ -211,7 +216,7 @@ const LiverCareDetail = () => {
           {(product.composition || product.chemical_name || product.ingredients) && (
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
               <h3 className="font-semibold text-green-900 mb-2 flex items-center gap-2">
-                <span className="text-green-600">🌿</span>
+                <i className="fas fa-leaf text-green-600"></i>
                 Composition & Ingredients
               </h3>
               {product.composition && (
@@ -229,7 +234,7 @@ const LiverCareDetail = () => {
               {product.chemical_name === "Herbal Extract Formulation" && (
                 <div className="mb-2">
                   <p className="text-sm text-green-800 font-medium">Type:</p>
-                  <p className="text-green-900 text-sm">🌱 Herbal/Ayurvedic Formulation</p>
+                  <p className="text-green-900 text-sm"><i className="fas fa-leaf text-green-600 mr-1"></i> Herbal/Ayurvedic Formulation</p>
                 </div>
               )}
               {product.ingredients && product.ingredients.length > 0 && (
@@ -250,7 +255,7 @@ const LiverCareDetail = () => {
           {/* Quick Facts */}
           <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 mb-4">
             <h3 className="font-semibold text-teal-900 mb-3 flex items-center gap-2">
-              <span className="text-teal-600">📋</span>
+              <i className="fas fa-clipboard-list text-teal-600"></i>
               Quick Facts
             </h3>
             <div className="grid grid-cols-2 gap-3 text-sm">
@@ -290,7 +295,7 @@ const LiverCareDetail = () => {
           {/* Cart Summary */}
           <div className="mb-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
             <h3 className="font-semibold text-purple-900 mb-3 flex items-center gap-2">
-              <span className="text-purple-600">💰</span>
+              <i className="fas fa-file-invoice-dollar text-purple-600"></i>
               Order Summary
             </h3>
             <div className="space-y-2 text-sm">
@@ -326,7 +331,7 @@ const LiverCareDetail = () => {
           {product.highlights && (
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
               <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <span className="text-gray-600">⭐</span>
+                <i className="fas fa-star text-gray-600"></i>
                 Product Highlights
               </h3>
               <div className="grid grid-cols-1 gap-2 text-sm">
@@ -350,13 +355,14 @@ const LiverCareDetail = () => {
             {/* Chemical/Herbal Info Display */}
             {product.chemical_name && product.chemical_name !== "Herbal Extract Formulation" && (
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-blue-600 text-lg">🧪</span>
+                <i className="fas fa-flask text-blue-600"></i>
                 <span className="text-blue-700 font-medium text-lg">
                   {product.chemical_name}
                 </span>
                 {product.brand_name && (
                   <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
-                    Brand: {product.brand_name}
+                    <i className="fas fa-tag mr-1"></i>
+                    {product.brand_name}
                   </span>
                 )}
               </div>
@@ -365,13 +371,14 @@ const LiverCareDetail = () => {
             {/* Herbal/Ayurvedic Display */}
             {product.chemical_name === "Herbal Extract Formulation" && (
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-green-600 text-lg">🌿</span>
+                <i className="fas fa-leaf text-green-600"></i>
                 <span className="text-green-700 font-medium text-lg">
                   Ayurvedic/Herbal Formulation
                 </span>
                 {product.brand_name && (
                   <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">
-                    Brand: {product.brand_name}
+                    <i className="fas fa-tag mr-1"></i>
+                    {product.brand_name}
                   </span>
                 )}
               </div>
@@ -386,18 +393,21 @@ const LiverCareDetail = () => {
           {/* Rating and Stock */}
           <div className="flex items-center gap-4 mb-6">
             <div className="flex items-center gap-1 bg-yellow-100 px-3 py-1 rounded-full">
-              <span className="text-yellow-400">⭐</span>
+              <i className="fas fa-star text-yellow-400"></i>
               <span className="font-semibold text-yellow-700">{product.rating || "4.0"}</span>
             </div>
             <div className={`text-sm px-3 py-1 rounded-full ${product.stock > 50 ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
+              <i className={`fas fa-${product.stock > 50 ? 'check-circle' : 'exclamation-triangle'} mr-1`}></i>
               {product.stock > 50 ? 'In Stock' : 'Low Stock'} ({product.stock || 100} units)
             </div>
             {isPrescriptionRequired() ? (
               <div className="text-sm px-3 py-1 rounded-full bg-red-100 text-red-700">
+                <i className="fas fa-prescription-bottle mr-1"></i>
                 Prescription Required
               </div>
             ) : (
               <div className="text-sm px-3 py-1 rounded-full bg-green-100 text-green-700">
+                <i className="fas fa-cart-plus mr-1"></i>
                 OTC Available
               </div>
             )}
@@ -407,7 +417,7 @@ const LiverCareDetail = () => {
           {product.composition && (
             <div className="mb-6 bg-white border border-green-300 rounded-lg p-4 shadow-sm">
               <h3 className="font-semibold text-green-900 mb-3 flex items-center gap-2">
-                <span className="text-green-600 text-xl">⚗️</span>
+                <i className="fas fa-flask text-green-600"></i>
                 Detailed Composition
               </h3>
               <div className="bg-green-50 p-3 rounded-lg">
@@ -432,7 +442,7 @@ const LiverCareDetail = () => {
           {isPrescriptionRequired() && (
             <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-red-500 text-xl">📋</span>
+                <i className="fas fa-exclamation-triangle text-red-500"></i>
                 <span className="text-red-800 font-bold">Prescription Required</span>
               </div>
               <p className="text-red-700 text-sm">
@@ -440,7 +450,7 @@ const LiverCareDetail = () => {
                 Please consult your doctor before use.
               </p>
               <div className="mt-2 text-xs text-red-600">
-                <p><strong>Note:</strong> Always follow doctor's advice for liver medications.</p>
+                <p><strong>Note:</strong> Always follow your doctor's advice for liver medications.</p>
               </div>
             </div>
           )}
@@ -456,6 +466,7 @@ const LiverCareDetail = () => {
                   ₹{product.cost}
                 </span>
                 <span className="bg-red-100 text-red-600 px-2 py-1 rounded text-sm font-semibold">
+                  <i className="fas fa-percentage mr-1"></i>
                   Save {product.discount}%
                 </span>
               </>
@@ -475,6 +486,7 @@ const LiverCareDetail = () => {
               <div className="flex flex-wrap gap-2">
                 {product.uses.map((use, index) => (
                   <span key={index} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    <i className="fas fa-medical mr-1"></i>
                     {use}
                   </span>
                 ))}
@@ -486,7 +498,7 @@ const LiverCareDetail = () => {
           {product.information && (
             <div className="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
               <h3 className="font-semibold text-yellow-900 mb-2 flex items-center gap-2">
-                <span className="text-yellow-600">📝</span>
+                <i className="fas fa-info-circle text-yellow-600"></i>
                 Usage Information
               </h3>
               {product.information.usage_instruction && (
@@ -507,7 +519,7 @@ const LiverCareDetail = () => {
           {/* Liver Health Benefits */}
           <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4">
             <h3 className="font-semibold text-green-900 mb-2 flex items-center gap-2">
-              <span className="text-green-600">❤️</span>
+              <i className="fas fa-heart text-green-600"></i>
               Liver Health Benefits
             </h3>
             <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside ml-4">
@@ -528,14 +540,14 @@ const LiverCareDetail = () => {
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   className="px-3 py-1 hover:bg-gray-100 transition-colors text-gray-600"
                 >
-                  -
+                  <i className="fas fa-minus"></i>
                 </button>
                 <span className="px-4 py-1 min-w-[40px] text-center font-medium">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
                   className="px-3 py-1 hover:bg-gray-100 transition-colors text-gray-600"
                 >
-                  +
+                  <i className="fas fa-plus"></i>
                 </button>
               </div>
               <span className="text-sm text-gray-500">
@@ -552,7 +564,7 @@ const LiverCareDetail = () => {
                     : 'bg-green-600 text-white hover:bg-green-700'
                 }`}
               >
-                <span>🛒</span>
+                <i className="fas fa-shopping-cart"></i>
                 {isPrescriptionRequired() ? 'Consult Doctor' : 'Add to Cart'}
               </button>
               <button
@@ -564,7 +576,7 @@ const LiverCareDetail = () => {
                 }`}
                 disabled={isPrescriptionRequired()}
               >
-                <span>⚡</span>
+                <i className="fas fa-bolt"></i>
                 Buy Now
               </button>
             </div>
@@ -575,7 +587,7 @@ const LiverCareDetail = () => {
                 onClick={handleConsultDoctor}
                 className="w-full border border-red-600 text-red-600 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors flex items-center justify-center gap-2 mb-3"
               >
-                <span>👨‍⚕️</span>
+                <i className="fas fa-user-md"></i>
                 Consult Hepatologist for Prescription
               </button>
             )}
@@ -584,45 +596,36 @@ const LiverCareDetail = () => {
             <div className="flex gap-3">
               <button
                 onClick={handleViewCart}
-                className="flex-1 border border-green-600 text-green-600 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors"
+                className="flex-1 border border-green-600 text-green-600 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center justify-center gap-2"
               >
+                <i className="fas fa-shopping-cart"></i>
                 View Cart
               </button>
               <button
                 onClick={() => navigate("/home")}
-                className="flex-1 border border-gray-600 text-gray-600 py-2 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                className="flex-1 border border-gray-600 text-gray-600 py-2 rounded-lg font-semibold hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
               >
+                <i className="fas fa-home"></i>
                 Continue Shopping
               </button>
             </div>
           </div>
 
-          {/* Company Information */}
-          {(product.company_name || product.manufactured_by) && (
-            <div className="mt-6 pt-6 border-t">
-              <h3 className="font-semibold text-gray-900 mb-2">Company Information</h3>
-              <div className="text-sm text-gray-600 space-y-1">
-                {product.company_name && <p><strong>Company:</strong> {product.company_name}</p>}
-                {product.manufactured_by && <p><strong>Manufactured by:</strong> {product.manufactured_by}</p>}
-                {product.seller_name && <p><strong>Seller:</strong> {product.seller_name}</p>}
-                {product.seller_address && <p><strong>Address:</strong> {product.seller_address}</p>}
-                {product.country_of_origin && <p><strong>Country of Origin:</strong> {product.country_of_origin}</p>}
-                {product.seller_license && <p><strong>License:</strong> {product.seller_license}</p>}
-              </div>
-            </div>
-          )}
         </div>
       </div>
 
       {/* Liver Health Information */}
-      <div className="border-t pt-8 mb-8">
+      {/* <div className="border-t pt-8 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-          <span className="text-green-600">⚕️</span>
+          <i className="fas fa-shield-alt text-green-600"></i>
           Liver Health & Safety Information
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-green-200 rounded-lg p-4">
-            <h3 className="font-semibold text-green-900 mb-2">Storage Instructions</h3>
+            <h3 className="font-semibold text-green-900 mb-2 flex items-center gap-2">
+              <i className="fas fa-temperature-low text-green-600"></i>
+              Storage Instructions
+            </h3>
             <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
               <li>Store in original packaging</li>
               <li>Keep away from moisture and heat</li>
@@ -631,7 +634,10 @@ const LiverCareDetail = () => {
             </ul>
           </div>
           <div className="bg-white border border-green-200 rounded-lg p-4">
-            <h3 className="font-semibold text-green-900 mb-2">Safety Precautions</h3>
+            <h3 className="font-semibold text-green-900 mb-2 flex items-center gap-2">
+              <i className="fas fa-exclamation-triangle text-green-600"></i>
+              Safety Precautions
+            </h3>
             <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
               <li>Do not exceed recommended dosage</li>
               <li>Check expiry date before use</li>
@@ -640,41 +646,53 @@ const LiverCareDetail = () => {
             </ul>
           </div>
           <div className="bg-white border border-green-200 rounded-lg p-4">
-            <h3 className="font-semibold text-green-900 mb-2">Liver Health Tips</h3>
+            <h3 className="font-semibold text-green-900 mb-2 flex items-center gap-2">
+              <i className="fas fa-heartbeat text-green-600"></i>
+              Liver Health Tips
+            </h3>
             <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-              <li>Maintain healthy diet</li>
+              <li>Maintain a healthy diet</li>
               <li>Limit alcohol consumption</li>
               <li>Exercise regularly</li>
               <li>Stay hydrated</li>
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Liver Care Guidelines */}
-      <div className="border-t pt-8 mb-8">
+      {/* <div className="border-t pt-8 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Liver Care Guidelines</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-gray-200 rounded-lg p-4">
-            <h3 className="font-semibold text-gray-900 mb-2">Alcohol Management</h3>
+            <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+              <i className="fas fa-wine-bottle text-gray-600"></i>
+              Alcohol Management
+            </h3>
             <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
               <li>Limit alcohol intake or avoid completely</li>
               <li>Allow liver recovery time between drinks</li>
               <li>Never mix alcohol with liver medications</li>
-              <li>Consult doctor about safe limits</li>
+              <li>Consult your doctor about safe limits</li>
             </ul>
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-4">
-            <h3 className="font-semibold text-gray-900 mb-2">Dietary Management</h3>
+            <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+              <i className="fas fa-utensils text-gray-600"></i>
+              Dietary Management
+            </h3>
             <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
               <li>Eat antioxidant-rich foods</li>
               <li>Include fiber in your diet</li>
               <li>Limit processed and fried foods</li>
-              <li>Maintain healthy weight</li>
+              <li>Maintain a healthy weight</li>
             </ul>
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-4">
-            <h3 className="font-semibold text-gray-900 mb-2">Medical Monitoring</h3>
+            <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+              <i className="fas fa-stethoscope text-gray-600"></i>
+              Medical Monitoring
+            </h3>
             <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
               <li>Regular liver function tests</li>
               <li>Monitor medication side effects</li>
@@ -683,37 +701,37 @@ const LiverCareDetail = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Important Medical Notice */}
       <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
         <h3 className="text-xl font-bold text-red-900 mb-4 flex items-center gap-2">
-          <span className="text-red-500">⚠️</span>
+          <i className="fas fa-exclamation-triangle text-red-500"></i>
           Important Medical Notice
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">📋</span>
-            <span>Consult hepatologist before starting any liver medication</span>
+            <i className="fas fa-file-medical text-red-500 mt-1"></i>
+            <span>Consult a hepatologist before starting any liver medication</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">⚠️</span>
+            <i className="fas fa-exclamation-triangle text-red-500 mt-1"></i>
             <span>Do not self-medicate for liver conditions</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">💊</span>
-            <span>Inform doctor about all medications you're taking</span>
+            <i className="fas fa-pills text-red-500 mt-1"></i>
+            <span>Inform your doctor about all medications you're taking</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">🩺</span>
+            <i className="fas fa-stethoscope text-red-500 mt-1"></i>
             <span>Monitor for symptoms like jaundice or abdominal pain</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">🥃</span>
+            <i className="fas fa-wine-bottle text-red-500 mt-1"></i>
             <span>Avoid alcohol while taking liver medications</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">⚕️</span>
+            <i className="fas fa-heartbeat text-red-500 mt-1"></i>
             <span>Get regular liver function tests as advised</span>
           </div>
         </div>
@@ -722,7 +740,10 @@ const LiverCareDetail = () => {
       {/* Related Products */}
       {relatedProducts.length > 0 && (
         <div className="border-t pt-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Liver Care Products</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <i className="fas fa-boxes text-green-600"></i>
+            Related Liver Care Products
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedProducts.map(relatedProduct => {
               const isRxRequired = relatedProduct.medicine_type?.includes("Injection") || 
@@ -737,7 +758,7 @@ const LiverCareDetail = () => {
                   })}
                 >
                   <div className="relative">
-                    <div className="w-full h-32 bg-gray-200 rounded-t-lg flex items-center justify-center">
+                    <div className="w-full h-32 bg-gray-100 rounded-t-lg flex items-center justify-center">
                       <img
                         src={relatedProduct.images || "/assets/placeholder.jpg"}
                         alt={relatedProduct.name}
@@ -749,12 +770,14 @@ const LiverCareDetail = () => {
                     </div>
                     {relatedProduct.discount > 0 && (
                       <span className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold">
+                        <i className="fas fa-tag mr-1"></i>
                         {relatedProduct.discount}% OFF
                       </span>
                     )}
                     <div className={`absolute top-2 right-2 px-2 py-1 rounded text-xs font-semibold ${
                       isRxRequired ? 'bg-red-500 text-white' : 'bg-green-500 text-white'
                     }`}>
+                      <i className={`fas fa-${isRxRequired ? 'prescription' : 'cart-plus'} mr-1`}></i>
                       {isRxRequired ? 'Rx' : 'OTC'}
                     </div>
                   </div>
@@ -764,9 +787,13 @@ const LiverCareDetail = () => {
                     </h3>
                     {/* Show type info */}
                     {relatedProduct.chemical_name === "Herbal Extract Formulation" ? (
-                      <p className="text-green-600 text-xs mb-1">🌿 Herbal Formulation</p>
+                      <p className="text-green-600 text-xs mb-1 flex items-center gap-1">
+                        <i className="fas fa-leaf"></i>
+                        Herbal Formulation
+                      </p>
                     ) : relatedProduct.chemical_name && (
-                      <p className="text-blue-600 text-xs mb-1 line-clamp-1">
+                      <p className="text-blue-600 text-xs mb-1 line-clamp-1 flex items-center gap-1">
+                        <i className="fas fa-flask"></i>
                         {relatedProduct.chemical_name}
                       </p>
                     )}

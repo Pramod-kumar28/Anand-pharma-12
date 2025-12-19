@@ -139,7 +139,7 @@ const HeartCareDetail = () => {
       {showCartSuccess && (
         <div className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-slide-in">
           <div className="flex items-center gap-3">
-            <span className="text-xl">✓</span>
+            <i className="fas fa-check text-xl"></i>
             <div>
               <p className="font-semibold">Added to Cart!</p>
               <p className="text-sm opacity-90">{quantity} × {product.name}</p>
@@ -170,7 +170,7 @@ const HeartCareDetail = () => {
           {product.chemical_name && (
             <div className="mb-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
               <h3 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
-                <span className="text-blue-600">🧪</span>
+                <i className="fas fa-flask text-blue-600"></i>
                 Chemical Composition
               </h3>
               <div className="space-y-2">
@@ -195,7 +195,7 @@ const HeartCareDetail = () => {
           {/* Quick Facts */}
           <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
             <h3 className="font-semibold text-red-900 mb-3 flex items-center gap-2">
-              <span className="text-red-600">📋</span>
+              <i className="fas fa-clipboard-list text-red-600"></i>
               Quick Facts
             </h3>
             <div className="grid grid-cols-2 gap-3 text-sm">
@@ -235,7 +235,7 @@ const HeartCareDetail = () => {
           {/* Cart Summary */}
           <div className="mb-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
             <h3 className="font-semibold text-purple-900 mb-3 flex items-center gap-2">
-              <span className="text-purple-600">💰</span>
+              <i className="fas fa-shopping-basket text-purple-600"></i>
               Order Summary
             </h3>
             <div className="space-y-2 text-sm">
@@ -257,7 +257,8 @@ const HeartCareDetail = () => {
               )}
               <div className="pt-2 border-t">
                 <p className="text-purple-700 text-xs">
-                  * Valid prescription required for purchase
+                  <i className="fas fa-file-medical mr-1"></i>
+                  Valid prescription required for purchase
                 </p>
               </div>
             </div>
@@ -266,7 +267,7 @@ const HeartCareDetail = () => {
           {/* Medical Information */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
-              <span className="text-blue-600">💊</span>
+              <i className="fas fa-pills text-blue-600"></i>
               Cardiac Medication Information
             </h3>
             <div className="space-y-2 text-sm text-blue-800">
@@ -292,7 +293,7 @@ const HeartCareDetail = () => {
             {/* Chemical Name Display */}
             {product.chemical_name && (
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-blue-600 text-lg">🧬</span>
+                <i className="fas fa-dna text-blue-600 text-lg"></i>
                 <span className="text-blue-700 font-medium text-lg">
                   {product.chemical_name}
                 </span>
@@ -316,7 +317,7 @@ const HeartCareDetail = () => {
           {/* Important Warning */}
           <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-red-500 text-xl">⚠️</span>
+              <i className="fas fa-exclamation-triangle text-red-500 text-xl"></i>
               <span className="text-red-800 font-bold">Important Medical Notice</span>
             </div>
             <p className="text-red-700 text-sm">
@@ -357,7 +358,7 @@ const HeartCareDetail = () => {
           {(product.composition || product.chemical_name) && (
             <div className="mb-6 bg-white border border-blue-300 rounded-lg p-4 shadow-sm">
               <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
-                <span className="text-blue-600 text-xl">⚗️</span>
+                <i className="fas fa-vial text-blue-600 text-xl"></i>
                 Detailed Chemical Information
               </h3>
               <div className="space-y-3">
@@ -380,7 +381,7 @@ const HeartCareDetail = () => {
           {/* How to Order */}
           <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4">
             <h3 className="font-semibold text-green-900 mb-3 flex items-center gap-2">
-              <span className="text-green-600">📝</span>
+              <i className="fas fa-book text-green-600"></i>
               How to Order Cardiac Medications
             </h3>
             <div className="space-y-3">
@@ -402,17 +403,35 @@ const HeartCareDetail = () => {
           {/* Safety Information */}
           <div className="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
             <h3 className="font-semibold text-yellow-900 mb-2 flex items-center gap-2">
-              <span className="text-yellow-600">⚠️</span>
+              <i className="fas fa-exclamation-triangle text-yellow-600"></i>
               Safety Information
             </h3>
-            <ul className="text-yellow-800 text-sm space-y-1 list-disc list-inside">
-              <li>Take exactly as prescribed by your doctor</li>
-              <li>Do not stop taking without medical advice</li>
-              <li>Report any unusual bleeding or bruising</li>
-              <li>Regular liver function tests may be required</li>
-              <li>Inform your doctor about all other medications</li>
+            <ul className="text-yellow-800 text-sm space-y-2">
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Take exactly as prescribed by your doctor
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Do not stop taking without medical advice
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Report any unusual bleeding or bruising
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Regular liver function tests may be required
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Inform your doctor about all other medications
+              </li>
               {product.chemical_name && (
-                <li>Verify chemical compatibility with other drugs</li>
+                <li className="flex items-start gap-2">
+                  <i className="fas fa-check text-green-500 mt-1"></i>
+                  Verify chemical compatibility with other drugs
+                </li>
               )}
             </ul>
           </div>
@@ -430,14 +449,14 @@ const HeartCareDetail = () => {
                 </button>
                 <span className="px-4 py-1 min-w-[40px] text-center font-medium">{quantity}</span>
                 <button
-                  onClick={() => setQuantity(quantity + 1)}
+                  onClick={() => setQuantity(Math.min(3, quantity + 1))}
                   className="px-3 py-1 hover:bg-gray-100 transition-colors text-gray-600"
                 >
                   +
                 </button>
               </div>
               <span className="text-sm text-gray-500">
-                (Max: 3)
+                (Maximum: 3)
               </span>
             </div>
 
@@ -446,14 +465,14 @@ const HeartCareDetail = () => {
                 onClick={handleAddToCart}
                 className="flex-1 bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors flex items-center justify-center gap-2"
               >
-                <span>🛒</span>
+                <i className="fas fa-shopping-cart"></i>
                 Add to Cart
               </button>
               <button
                 onClick={handleBuyNow}
                 className="flex-1 bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
               >
-                <span>⚡</span>
+                <i className="fas fa-bolt"></i>
                 Buy Now
               </button>
             </div>
@@ -464,14 +483,14 @@ const HeartCareDetail = () => {
                 onClick={handleConsultDoctor}
                 className="flex-1 border border-blue-600 text-blue-600 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2"
               >
-                <span>👨‍⚕️</span>
+                <i className="fas fa-user-md"></i>
                 Consult Cardiologist
               </button>
               <button
                 onClick={handleUploadPrescription}
                 className="flex-1 border border-green-600 text-green-600 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center justify-center gap-2"
               >
-                <span>📋</span>
+                <i className="fas fa-file-medical"></i>
                 Upload Prescription
               </button>
             </div>
@@ -495,74 +514,71 @@ const HeartCareDetail = () => {
         </div>
       </div>
 
-      {/* Chemical Safety Information */}
-      {product.chemical_name && (
-        <div className="border-t pt-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <span className="text-blue-600">🧪</span>
-            Chemical Safety & Pharmacological Information
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white border border-blue-200 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-900 mb-2">Pharmacological Class</h3>
-              <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-                <li>{getChemicalClass(product.chemical_name)}</li>
-                <li>{getMechanismOfAction(product.chemical_name)}</li>
-                <li>Prescription-only medication</li>
-                <li>Follow cardiologist's instructions carefully</li>
-              </ul>
-            </div>
-            <div className="bg-white border border-blue-200 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-900 mb-2">Storage & Handling</h3>
-              <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-                <li>Store in original packaging</li>
-                <li>Keep away from moisture and direct sunlight</li>
-                <li>Store at room temperature (20-25°C)</li>
-                <li>Keep out of reach of children</li>
-              </ul>
-            </div>
-            <div className="bg-white border border-blue-200 rounded-lg p-4">
-              <h3 className="font-semibold text-blue-900 mb-2">Chemical Precautions</h3>
-              <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-                <li>Do not use if seal is broken</li>
-                <li>Check expiry date before use</li>
-                <li>Follow prescribed dosage strictly</li>
-                <li>Report adverse reactions immediately</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Heart Care Guidelines */}
       <div className="border-t pt-8 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Heart Care Best Practices</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-gray-200 rounded-lg p-4">
             <h3 className="font-semibold text-gray-900 mb-2">Medication Management</h3>
-            <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-              <li>Take medications at same time daily</li>
-              <li>Never skip doses without doctor's advice</li>
-              <li>Keep regular follow-up appointments</li>
-              <li>Monitor blood pressure regularly</li>
+            <ul className="text-sm text-gray-600 space-y-2">
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Take medications at same time daily
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Never skip doses without doctor's advice
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Keep regular follow-up appointments
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Monitor blood pressure regularly
+              </li>
             </ul>
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-4">
             <h3 className="font-semibold text-gray-900 mb-2">Lifestyle Changes</h3>
-            <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-              <li>Follow a heart-healthy diet</li>
-              <li>Engage in regular physical activity</li>
-              <li>Maintain healthy body weight</li>
-              <li>Avoid smoking and limit alcohol</li>
+            <ul className="text-sm text-gray-600 space-y-2">
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Follow a heart-healthy diet
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Engage in regular physical activity
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Maintain healthy body weight
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Avoid smoking and limit alcohol consumption
+              </li>
             </ul>
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-4">
             <h3 className="font-semibold text-gray-900 mb-2">Warning Signs</h3>
-            <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-              <li>Chest pain or discomfort</li>
-              <li>Shortness of breath</li>
-              <li>Irregular heartbeat</li>
-              <li>Severe dizziness or fainting</li>
+            <ul className="text-sm text-gray-600 space-y-2">
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Chest pain or discomfort
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Shortness of breath
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Irregular heartbeat
+              </li>
+              <li className="flex items-start gap-2">
+                <i className="fas fa-check text-green-500 mt-1"></i>
+                Severe dizziness or fainting
+              </li>
             </ul>
           </div>
         </div>
@@ -571,30 +587,31 @@ const HeartCareDetail = () => {
       {/* Emergency Information */}
       <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
         <h3 className="text-xl font-bold text-red-900 mb-4 flex items-center gap-2">
-          <span className="text-red-500">🚨</span>
+          <i className="fas fa-exclamation-triangle text-red-500"></i>
           Emergency Heart Symptoms
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">💔</span>
+            <i className="fas fa-heart text-red-500 mt-1"></i>
             <span>Chest pain or pressure lasting more than few minutes</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">💔</span>
+            <i className="fas fa-heart text-red-500 mt-1"></i>
             <span>Pain spreading to shoulder, arm, back, neck or jaw</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">💔</span>
+            <i className="fas fa-lungs text-red-500 mt-1"></i>
             <span>Shortness of breath with or without chest discomfort</span>
           </div>
           <div className="flex items-start gap-2">
-            <span className="text-red-500 mt-1">💔</span>
+            <i className="fas fa-thermometer-full text-red-500 mt-1"></i>
             <span>Cold sweat, nausea, vomiting or lightheadedness</span>
           </div>
         </div>
         <div className="mt-4 p-3 bg-red-100 rounded-lg">
-          <p className="text-red-700 text-center font-semibold">
-            ⚕️ Call Emergency Services Immediately if you experience any of these symptoms!
+          <p className="text-red-700 text-center font-semibold flex items-center justify-center gap-2">
+            <i className="fas fa-ambulance"></i>
+            Call Emergency Services Immediately if you experience any of these symptoms!
           </p>
         </div>
       </div>
@@ -615,8 +632,7 @@ const HeartCareDetail = () => {
                 <div className="relative">
                   <div className="w-full h-32 bg-gray-200 rounded-t-lg flex items-center justify-center">
                     <div className="text-center">
-                      <span className="text-red-500 text-3xl">❤️</span>
-                      <p className="text-gray-500 text-xs mt-1">Cardiac Care</p>
+                      <img src={relatedProduct.image} alt="" className="w-full h-32 object-contain"/>
                     </div>
                   </div>
                   {relatedProduct.savings && (

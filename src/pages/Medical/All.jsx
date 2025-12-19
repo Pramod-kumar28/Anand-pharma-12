@@ -37,7 +37,7 @@ const All = () => {
     {
       id: "cardiac-care",
       name: "Heart Care",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXeM6pntqJsI8yPCYiX6tjLyaemnWcqheGug&s",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDLpyFiKIxsoRg8RuwikIgOWqXVT4tsiw70w&s",
       color: "bg-gradient-to-r from-red-500 to-red-600",
       description: "Cardiac medications & monitors",
       count: "80+ items",
@@ -267,7 +267,7 @@ const All = () => {
             className="text-orange-600 font-semibold hover:text-orange-700 flex items-center gap-1"
           >
             View All Products
-            <span>→</span>
+            <i className="fas fa-arrow-right ml-1"></i>
           </button>
         </div>
 
@@ -301,7 +301,7 @@ const All = () => {
                     {category.count}
                   </span>
                   <span className="text-orange-600 text-xs font-semibold group-hover:translate-x-1 transition-transform duration-300">
-                    View Products →
+                    View Products <i className="fas fa-arrow-right ml-1"></i>
                   </span>
                 </div>
               </div>
@@ -347,7 +347,7 @@ const All = () => {
                           : "text-gray-300"
                       }`}
                     >
-                      ★
+                      <i className="fas fa-star"></i>
                     </span>
                   ))}
                   <span className="text-sm text-gray-600 ml-1">
@@ -387,7 +387,7 @@ const All = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-xl shadow-sm">
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
-              <span className="text-blue-600 text-xl">💊</span>
+              <i className="fas fa-pills text-blue-600 text-xl"></i>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Medication Safety</h3>
             <p className="text-gray-600 text-sm">
@@ -396,7 +396,7 @@ const All = () => {
           </div>
           <div className="bg-white p-6 rounded-xl shadow-sm">
             <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3">
-              <span className="text-green-600 text-xl">🌿</span>
+              <i className="fas fa-leaf text-green-600 text-xl"></i>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Natural Remedies</h3>
             <p className="text-gray-600 text-sm">
@@ -405,7 +405,7 @@ const All = () => {
           </div>
           <div className="bg-white p-6 rounded-xl shadow-sm">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-3">
-              <span className="text-red-600 text-xl">🩺</span>
+              <i className="fas fa-stethoscope text-red-600 text-xl"></i>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Regular Check-ups</h3>
             <p className="text-gray-600 text-sm">
