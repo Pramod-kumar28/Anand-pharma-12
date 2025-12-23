@@ -187,9 +187,9 @@ const Header = ({
                                             }}
                                         />
                                     </div>
-                                    <div className="w-6 h-6 md:w-8 md:h-8">
+                                    <div className="w-8 h-8 md:w-10 md:h-10">
                                         <img
-                                            src="/assets/logo.png"
+                                            src="/assets/logo.jpeg"
                                             alt="Logo"
                                             className="w-full h-full object-contain"
                                             onError={(e) => {

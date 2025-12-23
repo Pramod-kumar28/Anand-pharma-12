@@ -19,9 +19,9 @@ const Footer = () => {
                                         className="w-full h-full object-cover object-top"
                                     />
                                 </div>
-                                <div className="w-8 h-8 flex items-center justify-center">
+                                <div className="w-12 h-12 flex rounded-full border-2   overflow-hidden flex-shrink-0 items-center justify-center">
                                     <img 
-                                        src="/assets/logo.png" 
+                                        src="/assets/logo.jpeg" 
                                         alt="Anand Pharmacy Logo" 
                                         className="w-full h-full object-contain"
                                     />
@@ -37,9 +37,9 @@ const Footer = () => {
                                         className="w-full h-full object-cover object-top"
                                     />
                                 </div>
-                                <div className="w-10 h-10 flex items-center justify-center">
+                                <div className="w-12 h-12 flex rounded-full border-2   overflow-hidden  items-center justify-center">
                                     <img 
-                                        src="/assets/logo.png" 
+                                        src="/assets/logo.jpeg" 
                                         alt="Anand Pharmacy Logo" 
                                         className="w-full h-full object-contain"
                                     />
