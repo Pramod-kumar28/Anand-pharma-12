@@ -12,14 +12,14 @@ const Footer = () => {
                         <div className="flex items-center gap-3 mb-4">
                             {/* CEO Image - Hidden on mobile, shown on desktop */}
                             <div className="hidden md:flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full border-2 border-blue-400 overflow-hidden flex-shrink-0">
+                                {/* <div className="w-12 h-12 rounded-full border-2 border-blue-400 overflow-hidden flex-shrink-0">
                                     <img 
                                         src="/assets/CEO.png" 
                                         alt="CEO" 
                                         className="w-full h-full object-cover object-top"
                                     />
-                                </div>
-                                <div className="w-12 h-12 flex rounded-full border-2   overflow-hidden flex-shrink-0 items-center justify-center">
+                                </div> */}
+                                <div className="w-16 h-16 flex rounded-full border-2   overflow-hidden flex-shrink-0 items-center justify-center">
                                     <img 
                                         src="/assets/logo.jpeg" 
                                         alt="Anand Pharmacy Logo" 
@@ -30,14 +30,14 @@ const Footer = () => {
                             
                             {/* Mobile View - Only show logo */}
                             <div className="flex md:hidden items-center gap-1">
-                                <div className="w-12 h-12 rounded-full border-2 border-blue-400 overflow-hidden flex-shrink-0">
+                                {/* <div className="w-12 h-12 rounded-full border-2 border-blue-400 overflow-hidden flex-shrink-0">
                                     <img 
                                         src="/assets/CEO.png" 
                                         alt="CEO" 
                                         className="w-full h-full object-cover object-top"
                                     />
-                                </div>
-                                <div className="w-12 h-12 flex rounded-full border-2   overflow-hidden  items-center justify-center">
+                                </div> */}
+                                <div className="w-14 h-14 flex rounded-full border-2   overflow-hidden  items-center justify-center">
                                     <img 
                                         src="/assets/logo.jpeg" 
                                         alt="Anand Pharmacy Logo" 
@@ -48,7 +48,7 @@ const Footer = () => {
                             
                             {/* Brand Name */}
                             <div className="flex flex-col min-w-0">
-                                <span className="text-base font-bold text-white-800 whitespace-nowrap md:text-lg truncate">
+                                <span className="text-base font-bold text-white-800 whitespace-nowrap md:text-xl truncate">
                                     <span className="text-blue-300">Anand</span> Pharma
                                 </span>
                                 {/* Tagline - Hidden on mobile */}
@@ -59,10 +59,7 @@ const Footer = () => {
                         </div>
                         
                         <p className="text-white/80 leading-relaxed mb-6 max-w-md">
-                                At Anand Pharma, we're committed to making healthcare truly accessible delivering genuine medicines 
-                                to your doorstep in just 15 to 30 minutes. We believe timely access to medication is a right, not a privilege, 
-                                and we deliver trust, transparency, and care to every home, every time through our advanced healthcare 
-                                ecosystem.
+                                Anand Pharma is committed to truly accessible healthcare, delivering genuine medicines to your doorstep in 15 to 30 minutes.
                         </p>
                         
                         {/* Social Media Links */}
